@@ -1,0 +1,58 @@
+{
+  "furniture": [
+    {
+      "furnitureName": "Scout Dining Table",
+      "price": 1398.0,
+      "saleItem": false,
+      "salePrice": null,
+      "color": ["marble + wood"],
+      "category": "dining tables",
+      "rating": [0],
+      "images": {
+        "primaryImage": "scout-1",
+        "secondaryImage": "scout-2",
+        "tertiaryImages": ["scout-3", "scout-4"]
+      },
+      "id": 73930385
+    },
+    {
+      "furnitureName": "maja Dining Table",
+      "price": 1898.0,
+      "saleItem": false,
+      "salePrice": null,
+      "color": ["light sand"],
+      "category": "dining tables",
+      "rating": [0],
+      "images": [
+        {
+          "primaryImage": "maja-1",
+          "secondaryImage": "maja-2",
+          "tertiaryImages": ["maja-3", "maja-4"]
+        }
+      ],
+      "id": 73930386
+    },
+    {
+      "furnitureName": "Sonali Dining Table",
+      "price": 1798.4,
+      "saleItem": true,
+      "salePrice": 1438.0,
+      "color": ["white", "black"],
+      "category": "dining tables",
+      "rating": [0],
+      "images": [
+        {
+          "primaryImage": "sonali-1a",
+          "secondaryImage": "sonali-2a",
+          "tertiaryImages": ["sonali-3a", "sonali-4a"]
+        },
+        {
+          "primaryImage": "sonali-1b",
+          "secondaryImage": "sonali-2b",
+          "tertiaryImages": ["sonali-3b", "sonali-4b"]
+        }
+      ],
+      "id": 73930387
+    }
+  ]
+}
