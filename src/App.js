@@ -1,7 +1,7 @@
 import { ProductsProvider } from "./contexts/ProductsContext";
 import "./App.css";
 import Main from "./components/Main";
-import ProductList from "./components/ProductList";
+import ProductList from "./components/products/ProductList";
 
 function App() {
   return (

@@ -21,6 +21,18 @@ function reducer(state, action) {
         isLoading: false,
       };
     }
+    case "open_quickshop": {
+      return {
+        ...state,
+        openQuickShop: true,
+      };
+    }
+    case "close_quickshop": {
+      return {
+        ...state,
+        openQuickShop: false,
+      };
+    }
 
     default:
       return "Unrecognized command";
@@ -30,6 +42,7 @@ function reducer(state, action) {
 const initialState = {
   products: [],
   isLoading: true,
+  openQuickShop: false,
 };
 
 const ProductsContext = createContext();
@@ -39,6 +52,27 @@ function ProductsProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [isQuickShopVisible, setIsQuickShopVisible] = useState(null);
   const { isLoading, products } = state;
+
+  const getCurrentProduct = (product, productIndex) => {
+    const currentProduct =
+      product.images.length > 1
+        ? product.images[productIndex]
+        : product.images[0];
+
+    return currentProduct;
+  };
+
+  const getProductColor = (colour) => {
+    if (colour === "white") {
+      return "#ffff";
+    } else if (colour === "black") {
+      return "#000";
+    } else if (colour === "light sand") {
+      return "#e6ccb2";
+    } else if (colour === "marble + wood") {
+      return "#edede9";
+    }
+  };
 
   useEffect(() => {
     fetchData();
@@ -58,10 +92,10 @@ function ProductsProvider({ children }) {
 
   const onHandleImageHover = (event, imagePath, type) => {
     if (type === "mouseOver") {
-      event.currentTarget.src = require(`../assets/images/${imagePath}`);
-      setIsQuickShopVisible(imagePath);
+      event.currentTarget.firstChild.src = require(`../assets/images/${imagePath.secondaryImage}`);
+      setIsQuickShopVisible(imagePath.secondaryImage);
     } else if (type === "mouseOut") {
-      event.currentTarget.src = require(`../assets/images/${imagePath}`);
+      event.currentTarget.firstChild.src = require(`../assets/images/${imagePath.primaryImage}`);
       setIsQuickShopVisible(null);
     }
   };
@@ -71,8 +105,11 @@ function ProductsProvider({ children }) {
       value={{
         isLoading,
         products,
+        getCurrentProduct,
         onHandleImageHover,
         isQuickShopVisible,
+        dispatch,
+        getProductColor,
       }}
     >
       {children}
