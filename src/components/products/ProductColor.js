@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { useProducts } from "../../contexts/ProductsContext";
 
-function ProductColor({ product, setProductIndex }) {
+function ProductColor({ product, setProductIndex, productIndex }) {
   const { getProductColor } = useProducts();
 
   return (
@@ -11,7 +11,7 @@ function ProductColor({ product, setProductIndex }) {
           <>
             <button
               key={index}
-              className="btn-color"
+              className={`btn-color ${index === productIndex ? "active" : ""}`}
               onClick={() => {
                 setProductIndex(index);
               }}

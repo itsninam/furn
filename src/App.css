@@ -35,6 +35,9 @@ button {
   width: 25px;
   border-radius: 50%;
   margin-right: 24px;
+}
+
+.btn-color.active {
   outline: 1px solid #212529;
   border: 1px solid #ced4da;
   outline-offset: 4px;
