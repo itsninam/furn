@@ -1,4 +1,10 @@
-import { createContext, useReducer, useEffect, useContext } from "react";
+import {
+  createContext,
+  useReducer,
+  useEffect,
+  useContext,
+  useState,
+} from "react";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -31,6 +37,7 @@ const BASE_URL = "http://localhost:9000";
 
 function ProductsProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [isQuickShopVisible, setIsQuickShopVisible] = useState(null);
   const { isLoading, products } = state;
 
   useEffect(() => {
@@ -49,11 +56,23 @@ function ProductsProvider({ children }) {
     }
   };
 
+  const onHandleImageHover = (event, imagePath, type) => {
+    if (type === "mouseOver") {
+      event.currentTarget.src = require(`../assets/images/${imagePath}`);
+      setIsQuickShopVisible(imagePath);
+    } else if (type === "mouseOut") {
+      event.currentTarget.src = require(`../assets/images/${imagePath}`);
+      setIsQuickShopVisible(null);
+    }
+  };
+
   return (
     <ProductsContext.Provider
       value={{
         isLoading,
         products,
+        onHandleImageHover,
+        isQuickShopVisible,
       }}
     >
       {children}

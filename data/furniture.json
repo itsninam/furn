@@ -8,11 +8,13 @@
       "color": ["marble + wood"],
       "category": "dining tables",
       "rating": [0],
-      "images": {
-        "primaryImage": "scout-1",
-        "secondaryImage": "scout-2",
-        "tertiaryImages": ["scout-3", "scout-4"]
-      },
+      "images": [
+        {
+          "primaryImage": "scout-1.webp",
+          "secondaryImage": "scout-2.webp",
+          "tertiaryImages": ["scout-3.webp", "scout-4.webp"]
+        }
+      ],
       "id": 73930385
     },
     {
@@ -25,9 +27,9 @@
       "rating": [0],
       "images": [
         {
-          "primaryImage": "maja-1",
-          "secondaryImage": "maja-2",
-          "tertiaryImages": ["maja-3", "maja-4"]
+          "primaryImage": "maja-1.webp",
+          "secondaryImage": "maja-2.webp",
+          "tertiaryImages": ["maja-3.webp", "maja-4.webp"]
         }
       ],
       "id": 73930386
@@ -42,14 +44,9 @@
       "rating": [0],
       "images": [
         {
-          "primaryImage": "sonali-1a",
-          "secondaryImage": "sonali-2a",
-          "tertiaryImages": ["sonali-3a", "sonali-4a"]
-        },
-        {
-          "primaryImage": "sonali-1b",
-          "secondaryImage": "sonali-2b",
-          "tertiaryImages": ["sonali-3b", "sonali-4b"]
+          "primaryImage": "sonali-1a.webp",
+          "secondaryImage": "sonali-2a.webp",
+          "tertiaryImages": ["sonali-3a.webp", "sonali-4a.webp"]
         }
       ],
       "id": 73930387
