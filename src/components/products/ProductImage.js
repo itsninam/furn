@@ -1,9 +1,11 @@
-import { useState } from "react";
 import { useProducts } from "../../contexts/ProductsContext";
 import ProductName from "./ProductName";
+import { Link, useNavigate } from "react-router-dom";
 
 const ProductImage = ({ product, currentProduct }) => {
-  const { onHandleImageHover, isQuickShopVisible, dispatch } = useProducts();
+  const { onHandleImageHover, isQuickShopVisible } = useProducts();
+
+  const navigate = useNavigate();
 
   return (
     <div
@@ -23,7 +25,7 @@ const ProductImage = ({ product, currentProduct }) => {
       {isQuickShopVisible === currentProduct.secondaryImage && (
         <button
           className="btn-quickview"
-          onClick={() => dispatch({ type: "open_quickshop" })}
+          onClick={() => navigate("/quickshop", { state: product.id })}
         >
           Quick Shop
         </button>

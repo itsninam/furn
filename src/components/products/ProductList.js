@@ -2,6 +2,8 @@ import React from "react";
 import { useProducts } from "../../contexts/ProductsContext";
 import Loading from "../Loading";
 import Product from "./Product";
+import QuickShop from "../QuickShop";
+import { Outlet, Route, Routes } from "react-router-dom";
 
 function ProductList() {
   const { isLoading, products } = useProducts();
@@ -10,11 +12,15 @@ function ProductList() {
     return <Loading />;
   }
   return (
-    <ul>
-      {products.map((product) => {
-        return <Product product={product} key={product.id} />;
-      })}
-    </ul>
+    <section>
+      <ul>
+        {products.map((product) => {
+          return <Product product={product} key={product.id} />;
+        })}
+      </ul>
+
+      <Outlet />
+    </section>
   );
 }
 

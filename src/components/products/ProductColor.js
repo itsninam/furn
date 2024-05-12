@@ -8,16 +8,14 @@ function ProductColor({ product, setProductIndex, productIndex }) {
     <div className="colors-container">
       {product.colors.map((color, index) => {
         return (
-          <>
-            <button
-              key={index}
-              className={`btn-color ${index === productIndex ? "active" : ""}`}
-              onClick={() => {
-                setProductIndex(index);
-              }}
-              style={{ backgroundColor: getProductColor(color) }}
-            ></button>
-          </>
+          <button
+            key={index}
+            className={`btn-color ${index === productIndex ? "active" : ""}`}
+            onClick={() => {
+              setProductIndex(index);
+            }}
+            style={{ backgroundColor: getProductColor(color) }}
+          ></button>
         );
       })}
       <span>

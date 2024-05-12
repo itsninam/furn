@@ -70,3 +70,15 @@ img {
 .sale-item {
   text-decoration: line-through;
 }
+
+.quick-shop {
+  border: 1px solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: white;
+  transform: translate(-50%, -50%);
+  width: 950px;
+  height: 750px;
+  max-height: 750px;
+}

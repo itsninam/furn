@@ -21,16 +21,10 @@ function reducer(state, action) {
         isLoading: false,
       };
     }
-    case "open_quickshop": {
+    case "show_quickshop_btn": {
       return {
         ...state,
-        openQuickShop: true,
-      };
-    }
-    case "close_quickshop": {
-      return {
-        ...state,
-        openQuickShop: false,
+        isQuickShopVisible: action.payload,
       };
     }
 
@@ -42,7 +36,7 @@ function reducer(state, action) {
 const initialState = {
   products: [],
   isLoading: true,
-  openQuickShop: false,
+  isQuickShopVisible: null,
 };
 
 const ProductsContext = createContext();
@@ -50,8 +44,7 @@ const BASE_URL = "http://localhost:9000";
 
 function ProductsProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [isQuickShopVisible, setIsQuickShopVisible] = useState(null);
-  const { isLoading, products } = state;
+  const { isLoading, products, isQuickShopVisible } = state;
 
   const getCurrentProduct = (product, productIndex) => {
     const currentProduct =
@@ -93,10 +86,13 @@ function ProductsProvider({ children }) {
   const onHandleImageHover = (event, imagePath, type) => {
     if (type === "mouseOver") {
       event.currentTarget.firstChild.src = require(`../assets/images/${imagePath.secondaryImage}`);
-      setIsQuickShopVisible(imagePath.secondaryImage);
+      dispatch({
+        type: "show_quickshop_btn",
+        payload: imagePath.secondaryImage,
+      });
     } else if (type === "mouseOut") {
       event.currentTarget.firstChild.src = require(`../assets/images/${imagePath.primaryImage}`);
-      setIsQuickShopVisible(null);
+      dispatch({ type: "show_quickshop_btn", payload: null });
     }
   };
 

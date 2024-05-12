@@ -5,10 +5,15 @@ function ProductPrice({ product }) {
     <div className="price-container">
       {product.saleItem && <p>${product.salePrice}</p>}
       <p>
-        <span className={product.saleItem ? "sale-item" : ""}>
-          ${product.price}
-        </span>{" "}
-        {product.saleItem ? "Limited time" : ""}
+        {product.saleItem ? (
+          <span className={product.saleItem ? "sale-item" : ""}>
+            ${product.price}
+          </span>
+        ) : (
+          `$${product.price}`
+        )}
+
+        {product.saleItem ? " Limited time" : ""}
       </p>
     </div>
   );
