@@ -54,4 +54,19 @@ img {
 .colors-container {
   display: flex;
   align-items: center;
+  margin-top: 24px;
+}
+
+.price-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* .price-container span {
+  margin-right: 24px;
+} */
+
+.sale-item {
+  text-decoration: line-through;
 }
