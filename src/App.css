@@ -81,4 +81,5 @@ img {
   width: 950px;
   height: 750px;
   max-height: 750px;
+  z-index: 10;
 }

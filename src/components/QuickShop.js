@@ -1,19 +1,15 @@
 import React from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
 import { useProducts } from "../contexts/ProductsContext";
 
-function QuickShop() {
+function QuickShop({ id, setIsQuickshopModalVisible }) {
   const { products } = useProducts();
-  const { state } = useLocation();
-  console.log(state, "state");
 
-  const chosenProduct = products.find((product) => product.id === state);
+  const chosenProduct = products.find((product) => product.id === id);
 
-  console.log(chosenProduct);
   return (
     <div className="quick-shop">
       {chosenProduct.furnitureName}
-      <Link to="/">Close</Link>
+      <button onClick={() => setIsQuickshopModalVisible(false)}>Close</button>
     </div>
   );
 }

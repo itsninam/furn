@@ -6,7 +6,7 @@
       "saleItem": false,
       "salePrice": null,
       "colors": ["marble + wood"],
-      "category": "dining tables",
+      "category": "dining-tables",
       "rating": [0],
       "images": [
         {
@@ -23,7 +23,7 @@
       "saleItem": false,
       "salePrice": null,
       "colors": ["light sand"],
-      "category": "dining tables",
+      "category": "dining-tables",
       "rating": [0],
       "images": [
         {
@@ -40,7 +40,7 @@
       "saleItem": true,
       "salePrice": 1438.0,
       "colors": ["black", "white"],
-      "category": "dining tables",
+      "category": "dining-tables",
       "rating": [0],
       "images": [
         {
@@ -55,6 +55,28 @@
         }
       ],
       "id": 73930387
+    },
+    {
+      "furnitureName": "Test",
+      "price": 1798.4,
+      "saleItem": true,
+      "salePrice": 1438.0,
+      "colors": ["black", "white"],
+      "category": "chairs",
+      "rating": [0],
+      "images": [
+        {
+          "primaryImage": "sonali-1a.webp",
+          "secondaryImage": "sonali-2a.webp",
+          "tertiaryImages": ["sonali-3a.webp", "sonali-4a.webp"]
+        },
+        {
+          "primaryImage": "sonali-1b.webp",
+          "secondaryImage": "sonali-2b.webp",
+          "tertiaryImages": ["sonali-3b.webp", "sonali-4b.webp"]
+        }
+      ],
+      "id": 73930388
     }
   ]
 }

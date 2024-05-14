@@ -1,10 +1,5 @@
-import {
-  createContext,
-  useReducer,
-  useEffect,
-  useContext,
-  useState,
-} from "react";
+import { createContext, useReducer, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -24,7 +19,13 @@ function reducer(state, action) {
     case "show_quickshop_btn": {
       return {
         ...state,
-        isQuickShopVisible: action.payload,
+        isQuickShopBtnVisible: action.payload,
+      };
+    }
+    case "select_product_category": {
+      return {
+        ...state,
+        selectedProductCategory: action.payload,
       };
     }
 
@@ -36,7 +37,8 @@ function reducer(state, action) {
 const initialState = {
   products: [],
   isLoading: true,
-  isQuickShopVisible: null,
+  isQuickShopBtnVisible: null,
+  selectedProductCategory: [],
 };
 
 const ProductsContext = createContext();
@@ -44,7 +46,14 @@ const BASE_URL = "http://localhost:9000";
 
 function ProductsProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { isLoading, products, isQuickShopVisible } = state;
+  const {
+    isLoading,
+    products,
+    isQuickShopBtnVisible,
+    selectedProductCategory,
+  } = state;
+
+  const navigate = useNavigate();
 
   const getCurrentProduct = (product, productIndex) => {
     const currentProduct =
@@ -55,7 +64,7 @@ function ProductsProvider({ children }) {
     return currentProduct;
   };
 
-  const getProductColor = (colour) => {
+  const getSelectedProductColor = (colour) => {
     if (colour === "white") {
       return "#ffff";
     } else if (colour === "black") {
@@ -96,6 +105,10 @@ function ProductsProvider({ children }) {
     }
   };
 
+  const productCategories = [
+    ...new Set(products.map((product) => product.category)),
+  ];
+
   return (
     <ProductsContext.Provider
       value={{
@@ -103,9 +116,12 @@ function ProductsProvider({ children }) {
         products,
         getCurrentProduct,
         onHandleImageHover,
-        isQuickShopVisible,
+        isQuickShopBtnVisible,
         dispatch,
-        getProductColor,
+        getSelectedProductColor,
+        productCategories,
+        navigate,
+        selectedProductCategory,
       }}
     >
       {children}

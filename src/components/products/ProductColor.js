@@ -1,8 +1,7 @@
-import React, { Fragment, useState } from "react";
 import { useProducts } from "../../contexts/ProductsContext";
 
 function ProductColor({ product, setProductIndex, productIndex }) {
-  const { getProductColor } = useProducts();
+  const { getSelectedProductColor } = useProducts();
 
   return (
     <div className="colors-container">
@@ -14,7 +13,7 @@ function ProductColor({ product, setProductIndex, productIndex }) {
             onClick={() => {
               setProductIndex(index);
             }}
-            style={{ backgroundColor: getProductColor(color) }}
+            style={{ backgroundColor: getSelectedProductColor(color) }}
           ></button>
         );
       })}

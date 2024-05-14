@@ -4,16 +4,15 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Main from "./components/Main";
 import ProductList from "./components/products/ProductList";
-import QuickShop from "./components/QuickShop";
+import Home from "./components/Home";
 
 function App() {
   return (
     <ProductsProvider>
       <Main>
         <Routes>
-          <Route path="/" element={<ProductList />}>
-            <Route path="/quickshop" element={<QuickShop />} />
-          </Route>
+          <Route path="/" element={<Home />} />
+          <Route path=":productCategory" element={<ProductList />}></Route>
         </Routes>
       </Main>
     </ProductsProvider>
