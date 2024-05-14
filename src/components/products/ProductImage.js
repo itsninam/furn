@@ -1,4 +1,5 @@
 import { useProducts } from "../../contexts/ProductsContext";
+
 import ProductName from "./ProductName";
 
 const ProductImage = ({

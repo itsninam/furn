@@ -1,7 +1,8 @@
 import React from "react";
 import { useProducts } from "../contexts/ProductsContext";
-import Loading from "./Loading";
 import { Link } from "react-router-dom";
+
+import Loading from "./Loading";
 
 function Home() {
   const { isLoading, productCategories } = useProducts();

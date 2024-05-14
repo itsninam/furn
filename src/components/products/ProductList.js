@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useProducts } from "../../contexts/ProductsContext";
+import { useParams } from "react-router-dom";
+
 import Loading from "../Loading";
 import Product from "./Product";
-import { useParams } from "react-router-dom";
 
 function ProductList() {
   const { isLoading, products, selectedProductCategory, dispatch } =
