@@ -7,12 +7,6 @@ function reducer(state, action) {
       return {
         ...state,
         products: action.payload,
-        isLoading: true,
-      };
-    }
-    case "data_loaded": {
-      return {
-        ...state,
         isLoading: false,
       };
     }
@@ -28,6 +22,12 @@ function reducer(state, action) {
         selectedProductCategory: action.payload,
       };
     }
+    case "img_loading": {
+      return {
+        ...state,
+        isImageLoading: false,
+      };
+    }
 
     default:
       return "Unrecognized command";
@@ -39,6 +39,7 @@ const initialState = {
   isLoading: true,
   isQuickShopBtnVisible: null,
   selectedProductCategory: [],
+  isImageLoading: true,
 };
 
 const ProductsContext = createContext();
@@ -51,6 +52,7 @@ function ProductsProvider({ children }) {
     products,
     isQuickShopBtnVisible,
     selectedProductCategory,
+    isImageLoading,
   } = state;
 
   const navigate = useNavigate();
@@ -87,8 +89,6 @@ function ProductsProvider({ children }) {
       dispatch({ type: "fetch_data", payload: data });
     } catch {
       alert("There was an error loading your data...");
-    } finally {
-      dispatch({ type: "data_loaded" });
     }
   };
 
@@ -122,6 +122,7 @@ function ProductsProvider({ children }) {
         productCategories,
         navigate,
         selectedProductCategory,
+        isImageLoading,
       }}
     >
       {children}

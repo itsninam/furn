@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useProducts } from "../../contexts/ProductsContext";
 import { useParams } from "react-router-dom";
 
@@ -17,13 +17,15 @@ function ProductList() {
     });
   }, [dispatch, params.productCategory]);
 
+  const selectedProducts = useMemo(() => {
+    return products.filter(
+      (product) => product.category === selectedProductCategory
+    );
+  }, [products, selectedProductCategory]);
+
   if (isLoading) {
     return <Loading />;
   }
-
-  const selectedProducts = products.filter(
-    (product) => product.category === selectedProductCategory
-  );
 
   return (
     <section>
