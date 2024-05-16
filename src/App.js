@@ -5,6 +5,7 @@ import "./App.css";
 import Main from "./components/Main";
 import ProductList from "./components/products/ProductList";
 import Home from "./components/Home";
+import QuickShop from "./components/QuickShop";
 
 function App() {
   return (
@@ -12,7 +13,9 @@ function App() {
       <Main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path=":productCategory" element={<ProductList />}></Route>
+          <Route path=":productCategory" element={<ProductList />}>
+            <Route path="quickshop" element={<QuickShop />} />
+          </Route>
         </Routes>
       </Main>
     </ProductsProvider>

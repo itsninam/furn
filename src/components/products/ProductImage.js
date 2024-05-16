@@ -1,12 +1,9 @@
 import { useProducts } from "../../contexts/ProductsContext";
+import { Link } from "react-router-dom";
 
 import ProductName from "./ProductName";
 
-const ProductImage = ({
-  product,
-  currentProduct,
-  setIsQuickshopModalVisible,
-}) => {
+const ProductImage = ({ product, currentProduct }) => {
   const { onHandleImageHover, isQuickShopBtnVisible } = useProducts();
 
   return (
@@ -25,12 +22,12 @@ const ProductImage = ({
       />
 
       {isQuickShopBtnVisible === currentProduct.secondaryImage && (
-        <button
+        <Link
           className="btn-quickview"
-          onClick={() => setIsQuickshopModalVisible(true)}
+          to={{ pathname: "quickshop", search: `?item=${product.id}` }}
         >
-          Quick Shop
-        </button>
+          <span>Quick Shop</span>
+        </Link>
       )}
       <ProductName product={product} />
     </div>
