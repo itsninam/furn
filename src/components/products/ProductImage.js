@@ -29,7 +29,7 @@ const ProductImage = ({ product, currentProduct }) => {
           <span>Quick Shop</span>
         </Link>
       )}
-      <ProductName product={product} />
+      <ProductName product={product.furnitureName} />
     </div>
   );
 };
