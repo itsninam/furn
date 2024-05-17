@@ -1,9 +1,12 @@
 import React from "react";
 import { useState } from "react";
 
-function QuickShopImage({ currentProduct, chosenProduct }) {
-  const [imageIndex, setImageIndex] = useState(0);
-
+function QuickShopImage({
+  currentProduct,
+  chosenProduct,
+  imageIndex,
+  setImageIndex,
+}) {
   const images = Object.values(currentProduct).flat(1);
 
   const handleImgNext = () => {

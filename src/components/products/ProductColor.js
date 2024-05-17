@@ -1,7 +1,22 @@
+import { useLocation } from "react-router-dom";
 import { useProducts } from "../../contexts/ProductsContext";
 
-function ProductColor({ product, setProductIndex, productIndex }) {
+function ProductColor({
+  product,
+  setProductIndex,
+  productIndex,
+  setImageIndex,
+}) {
   const { getSelectedProductColor } = useProducts();
+  const location = useLocation();
+
+  const handleSelectColor = (index) => {
+    setProductIndex(index);
+
+    if (location.pathname !== "/dining-tables") {
+      setImageIndex(0);
+    }
+  };
 
   return (
     <div className="colors-container">
@@ -10,9 +25,7 @@ function ProductColor({ product, setProductIndex, productIndex }) {
           <button
             key={index}
             className={`btn-color ${index === productIndex ? "active" : ""}`}
-            onClick={() => {
-              setProductIndex(index);
-            }}
+            onClick={() => handleSelectColor(index)}
             style={{ backgroundColor: getSelectedProductColor(color) }}
           ></button>
         );
