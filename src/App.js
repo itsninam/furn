@@ -5,7 +5,7 @@ import "./App.css";
 import Main from "./components/Main";
 import ProductList from "./components/products/ProductList";
 import Home from "./components/Home";
-import QuickShop from "./components/QuickShop";
+import QuickShop from "./components/quickShop/QuickShop";
 
 function App() {
   return (

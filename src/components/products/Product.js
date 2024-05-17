@@ -16,7 +16,11 @@ function Product({ product }) {
   return (
     <>
       <li>
-        <ProductImage product={product} currentProduct={currentProduct} />
+        <ProductImage
+          product={product}
+          currentProduct={currentProduct}
+          productIndex={productIndex}
+        />
         <ProductPrice product={product} />
         <ProductColor
           product={product}
