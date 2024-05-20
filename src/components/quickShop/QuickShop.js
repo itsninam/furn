@@ -7,6 +7,8 @@ import ProductPrice from "../products/ProductPrice";
 import ProductColor from "../products/ProductColor";
 import QuickShopImage from "./QuickShopImage";
 import CloseButton from "./CloseButton";
+import ProductDescription from "./ProductDescription";
+import ProductQuantitySelection from "./ProductQuantitySelection";
 
 function QuickShop() {
   const { products, getCurrentProduct } = useProducts();
@@ -18,7 +20,9 @@ function QuickShop() {
   const [imageIndex, setImageIndex] = useState(0);
   const [productIndex, setProductIndex] = useState(Number(color));
 
-  const chosenProduct = products.find((product) => product.id === productId);
+  const chosenProduct = products.find(
+    (product) => product.id === Number(productId)
+  );
 
   const currentProduct = getCurrentProduct(chosenProduct, productIndex);
 
@@ -40,7 +44,10 @@ function QuickShop() {
             productIndex={productIndex}
             setProductIndex={setProductIndex}
             setImageIndex={setImageIndex}
+            isColorNameVisible={true}
           />
+          <ProductDescription />
+          <ProductQuantitySelection />
         </div>
       </div>
     </div>

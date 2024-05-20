@@ -26,6 +26,7 @@ function Product({ product }) {
           product={product}
           setProductIndex={setProductIndex}
           productIndex={productIndex}
+          isNumColorVisible={true}
         />
       </li>
 
