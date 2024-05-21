@@ -17,6 +17,12 @@ function ProductColor({
 
     if (location.pathname !== "/dining-tables") {
       setImageIndex(0);
+
+      const colorParam = new URLSearchParams(location.search);
+
+      colorParam.set("color", index);
+
+      window.history.replaceState({}, "", `?${colorParam.toString()}`);
     }
   };
 
