@@ -28,7 +28,52 @@ function reducer(state, action) {
         isImageLoading: false,
       };
     }
+    case "user_input": {
+      return {
+        ...state,
+        userInput: action.payload,
+      };
+    }
+    case "add_to_cart": {
+      const itemExists = state.cartItems.find(
+        (item) => item.id === action.payload.id
+      );
 
+      const colorExists = state.cartItems.find(
+        (item) => item.colors === action.payload.colors
+      );
+
+      if (itemExists) {
+        if (colorExists) {
+          return {
+            ...state,
+            userInput: "select",
+            cartItems: state.cartItems.map((item) =>
+              item.colors === action.payload.colors
+                ? {
+                    ...item,
+                    colors: action.payload.colors,
+                    quantity:
+                      Number(item.quantity) + Number(action.payload.quantity),
+                  }
+                : item
+            ),
+          };
+        } else {
+          return {
+            ...state,
+            userInput: "select",
+            cartItems: [...state.cartItems, action.payload],
+          };
+        }
+      } else {
+        return {
+          ...state,
+          userInput: "select",
+          cartItems: [...state.cartItems, action.payload],
+        };
+      }
+    }
     default:
       return "Unrecognized command";
   }
@@ -40,6 +85,8 @@ const initialState = {
   isQuickShopBtnVisible: null,
   selectedProductCategory: [],
   isImageLoading: true,
+  userInput: "",
+  cartItems: [],
 };
 
 const ProductsContext = createContext();
@@ -53,6 +100,8 @@ function ProductsProvider({ children }) {
     isQuickShopBtnVisible,
     selectedProductCategory,
     isImageLoading,
+    userInput,
+    cartItems,
   } = state;
 
   const navigate = useNavigate();
@@ -123,6 +172,8 @@ function ProductsProvider({ children }) {
         navigate,
         selectedProductCategory,
         isImageLoading,
+        userInput,
+        cartItems,
       }}
     >
       {children}

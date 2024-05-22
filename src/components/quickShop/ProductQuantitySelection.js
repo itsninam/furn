@@ -1,14 +1,28 @@
-import React from "react";
+import { useProducts } from "../../contexts/ProductsContext";
 
-function ProductQuantitySelection() {
+function ProductQuantitySelection({ handleAddToBasket }) {
+  const { userInput, dispatch } = useProducts();
+
   return (
-    <form>
-      <select name="productQuantity" id="productQuantity">
+    <form onSubmit={handleAddToBasket}>
+      <select
+        name="productQuantity"
+        id="productQuantity"
+        value={userInput}
+        onChange={(event) =>
+          dispatch({ type: "user_input", payload: event.target.value })
+        }
+      >
+        <option>select</option>
         {Array.from(Array(10), (e, i) => {
-          return <option value={i + 1}>{i + 1}</option>;
+          return (
+            <option key={i} value={i + 1}>
+              {i + 1}
+            </option>
+          );
         })}
       </select>
-      <button>Add to basket</button>
+      <button type="submit">Add to basket</button>
     </form>
   );
 }

@@ -29,6 +29,10 @@ h2 {
   margin: 0px;
 }
 
+p {
+  margin: 0px;
+}
+
 .image-container {
   position: relative;
 }
@@ -132,4 +136,15 @@ form {
 
 form button {
   width: 100%;
+}
+
+.cart-icon {
+  height: 25px;
+  width: 25px;
+}
+
+.cart-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }

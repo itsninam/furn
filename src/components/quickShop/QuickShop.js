@@ -11,7 +11,7 @@ import ProductDescription from "./ProductDescription";
 import ProductQuantitySelection from "./ProductQuantitySelection";
 
 function QuickShop() {
-  const { products, getCurrentProduct } = useProducts();
+  const { products, getCurrentProduct, userInput, dispatch } = useProducts();
   const { search } = useLocation();
 
   const productId = new URLSearchParams(search).get("item");
@@ -25,6 +25,25 @@ function QuickShop() {
   );
 
   const currentProduct = getCurrentProduct(chosenProduct, productIndex);
+
+  const handleAddToBasket = (event) => {
+    event.preventDefault();
+
+    if (!userInput || userInput === "select") {
+      return;
+    }
+
+    const newProduct = {
+      furnitureName: chosenProduct.furnitureName,
+      price: chosenProduct.price,
+      colors: chosenProduct.colors[productIndex],
+      images: chosenProduct.images,
+      id: chosenProduct.id,
+      quantity: userInput,
+    };
+
+    dispatch({ type: "add_to_cart", payload: newProduct });
+  };
 
   return (
     <div className="quick-shop">
@@ -47,7 +66,7 @@ function QuickShop() {
             isColorNameVisible={true}
           />
           <ProductDescription />
-          <ProductQuantitySelection />
+          <ProductQuantitySelection handleAddToBasket={handleAddToBasket} />
         </div>
       </div>
     </div>
