@@ -1,4 +1,3 @@
-import React, { useEffect, useMemo } from "react";
 import { useProducts } from "../../contexts/ProductsContext";
 import { useParams } from "react-router-dom";
 
@@ -6,22 +5,12 @@ import Loading from "../Loading";
 import Product from "./Product";
 
 function ProductList() {
-  const { isLoading, products, selectedProductCategory, dispatch } =
-    useProducts();
+  const { isLoading, products } = useProducts();
   const params = useParams();
 
-  useEffect(() => {
-    dispatch({
-      type: "select_product_category",
-      payload: params.productCategory,
-    });
-  }, [dispatch, params.productCategory]);
-
-  const selectedProducts = useMemo(() => {
-    return products.filter(
-      (product) => product.category === selectedProductCategory
-    );
-  }, [products, selectedProductCategory]);
+  const selectedProducts = products.filter(
+    (product) => product.category === params.productCategory
+  );
 
   if (isLoading) {
     return <Loading />;

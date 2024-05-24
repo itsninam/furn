@@ -16,12 +16,6 @@ function reducer(state, action) {
         isQuickShopBtnVisible: action.payload,
       };
     }
-    case "select_product_category": {
-      return {
-        ...state,
-        selectedProductCategory: action.payload,
-      };
-    }
     case "img_loading": {
       return {
         ...state,
@@ -83,7 +77,6 @@ const initialState = {
   products: [],
   isLoading: true,
   isQuickShopBtnVisible: null,
-  selectedProductCategory: [],
   isImageLoading: true,
   userInput: "",
   cartItems: [],
@@ -98,7 +91,6 @@ function ProductsProvider({ children }) {
     isLoading,
     products,
     isQuickShopBtnVisible,
-    selectedProductCategory,
     isImageLoading,
     userInput,
     cartItems,
@@ -170,7 +162,6 @@ function ProductsProvider({ children }) {
         getSelectedProductColor,
         productCategories,
         navigate,
-        selectedProductCategory,
         isImageLoading,
         userInput,
         cartItems,
