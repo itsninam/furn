@@ -46,27 +46,29 @@ function QuickShop() {
   };
 
   return (
-    <div className="quick-shop">
-      <CloseButton />
-      <div className="flex-container">
-        <QuickShopImage
-          currentProduct={currentProduct}
-          chosenProduct={chosenProduct}
-          imageIndex={imageIndex}
-          setImageIndex={setImageIndex}
-        />
-        <div className="info-container">
-          <ProductName product={chosenProduct.furnitureName} />
-          <ProductPrice product={chosenProduct} />
-          <ProductColor
-            product={chosenProduct}
-            productIndex={productIndex}
-            setProductIndex={setProductIndex}
+    <div className="quick-shop-overlay">
+      <div className="quick-shop-modal">
+        <CloseButton />
+        <div className="flex-container">
+          <QuickShopImage
+            currentProduct={currentProduct}
+            chosenProduct={chosenProduct}
+            imageIndex={imageIndex}
             setImageIndex={setImageIndex}
-            isColorNameVisible={true}
           />
-          <ProductDescription />
-          <ProductQuantitySelection handleAddToBasket={handleAddToBasket} />
+          <div className="info-container">
+            <ProductName product={chosenProduct.furnitureName} />
+            <ProductPrice product={chosenProduct} />
+            <ProductColor
+              product={chosenProduct}
+              productIndex={productIndex}
+              setProductIndex={setProductIndex}
+              setImageIndex={setImageIndex}
+              isColorNameVisible={true}
+            />
+            <ProductDescription />
+            <ProductQuantitySelection handleAddToBasket={handleAddToBasket} />
+          </div>
         </div>
       </div>
     </div>
