@@ -1,4 +1,8 @@
 /* Base styles */
+:root {
+  --light-grey: #edede9;
+  --background-colour: #fffbff;
+}
 html {
   font-size: 62.5%;
 }
@@ -6,6 +10,7 @@ html {
 body {
   font-size: 1.6rem;
   font-family: "Nunito Sans", sans-serif;
+  background-color: var(--background-colour);
 }
 
 li,
@@ -58,14 +63,14 @@ button {
 
 .btn-quickview {
   position: absolute;
-  bottom: 30px;
+  bottom: 35px;
   left: 0px;
-  width: 100%;
+  width: 99%;
   height: 48px;
-  border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--light-grey);
 }
 
 .btn-color {
@@ -109,7 +114,6 @@ img {
 }
 
 .quick-shop-overlay {
-  border: 1px solid black;
   position: fixed;
   top: 0px;
   left: 0px;
@@ -120,10 +124,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.quick-shop-overlay .close-btn {
-  margin-left: auto;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .flex-container,
@@ -135,9 +136,31 @@ img {
 .quick-shop-modal {
   background-color: white;
   padding: 64px;
-  width: 850px;
-  height: 550px;
-  border: 1px solid black;
+  width: 824px;
+  height: 450px;
+  position: relative;
+}
+
+.quick-shop-modal .close-btn {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  background-color: transparent;
+  border: none;
+}
+
+.close-btn .close-icon {
+  font-size: 3.5rem;
+  color: var(--light-grey);
+}
+
+.quick-shop-modal .flex-container {
+  gap: 0px;
+}
+
+.quick-shop-modal img {
+  height: auto;
+  width: 300px;
 }
 
 .image-container {
@@ -169,7 +192,11 @@ form button {
 }
 
 nav {
-  border-bottom: 1px solid grey;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background: white;
+  border-bottom: 1px solid var(--light-grey);
   height: 72px;
   display: flex;
   align-items: center;

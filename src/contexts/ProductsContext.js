@@ -1,5 +1,5 @@
 import { createContext, useReducer, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -97,6 +97,11 @@ function ProductsProvider({ children }) {
   } = state;
 
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+
+  document.body.style.overflow = pathname.includes("/quickshop")
+    ? "hidden"
+    : "auto";
 
   const getCurrentProduct = (product, productIndex) => {
     const currentProduct =

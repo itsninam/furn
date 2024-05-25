@@ -1,5 +1,6 @@
 import React from "react";
 import { useProducts } from "../../contexts/ProductsContext";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 
 function CloseButton() {
   const { navigate } = useProducts();
@@ -8,7 +9,7 @@ function CloseButton() {
       className="close-btn"
       onClick={() => navigate(-1, { replace: true })}
     >
-      CLose
+      <IoIosCloseCircleOutline className="close-icon" />
     </button>
   );
 }
