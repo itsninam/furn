@@ -3,7 +3,9 @@ import React from "react";
 function ProductPrice({ product }) {
   return (
     <div className="price-container">
-      {product.saleItem && <p>${product.salePrice}</p>}
+      {product.saleItem && (
+        <p className="original-price">${product.salePrice}</p>
+      )}
       <p>
         {product.saleItem ? (
           <span className={product.saleItem ? "sale-item" : ""}>
@@ -13,7 +15,11 @@ function ProductPrice({ product }) {
           `$${product.price}`
         )}
 
-        {product.saleItem ? " Limited time" : ""}
+        {product.saleItem ? (
+          <span className="sale-tag"> Limited time</span>
+        ) : (
+          ""
+        )}
       </p>
     </div>
   );

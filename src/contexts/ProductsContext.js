@@ -121,6 +121,22 @@ function ProductsProvider({ children }) {
       return "#e6ccb2";
     } else if (colour === "marble + wood") {
       return "#edede9";
+    } else if (colour === "yellow") {
+      return "#edc531";
+    } else if (colour === "mint") {
+      return "#84dcc6";
+    } else if (colour === "blue") {
+      return "#118ab2";
+    } else if (colour === "green") {
+      return "#588157";
+    } else if (colour === "neutral") {
+      return "#b08968";
+    } else if (colour === "assorted") {
+      return "#fff";
+    } else if (colour === "butterscotch") {
+      return "#7f4f24";
+    } else if (colour === "light green") {
+      return "#656d4a";
     }
   };
 

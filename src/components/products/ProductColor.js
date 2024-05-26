@@ -12,10 +12,12 @@ function ProductColor({
   const { getSelectedProductColor } = useProducts();
   const location = useLocation();
 
+  console.log(location);
+
   const handleSelectColor = (index) => {
     setProductIndex(index);
 
-    if (location.pathname !== "/dining-tables") {
+    if (location.pathname.includes("/quickshop")) {
       setImageIndex(0);
 
       const colorParam = new URLSearchParams(location.search);
