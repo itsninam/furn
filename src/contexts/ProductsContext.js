@@ -68,6 +68,14 @@ function reducer(state, action) {
         };
       }
     }
+    case "remove_item": {
+      return {
+        ...state,
+        cartItems: state.cartItems.filter(
+          (item) => item.colors !== action.payload.colors
+        ),
+      };
+    }
     default:
       return "Unrecognized command";
   }
@@ -79,7 +87,7 @@ const initialState = {
   isQuickShopBtnVisible: null,
   isImageLoading: true,
   userInput: "",
-  cartItems: [],
+  cartItems: JSON.parse(localStorage.getItem("cartItems")) || [],
 };
 
 const ProductsContext = createContext();
@@ -143,6 +151,10 @@ function ProductsProvider({ children }) {
   useEffect(() => {
     fetchData();
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const fetchData = async () => {
     try {

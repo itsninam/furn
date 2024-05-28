@@ -244,3 +244,17 @@ section {
   padding: 12px 16px;
   color: black;
 }
+
+/* table styles */
+
+th:first-of-type,
+td:first-of-type {
+  width: 200px;
+  text-align: left;
+}
+
+td:not(:first-of-type),
+th:not(:first-of-type) {
+  width: 200px;
+  text-align: right;
+}

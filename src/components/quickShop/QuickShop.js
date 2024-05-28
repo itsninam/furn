@@ -20,9 +20,7 @@ function QuickShop() {
   const [imageIndex, setImageIndex] = useState(0);
   const [productIndex, setProductIndex] = useState(Number(color));
 
-  const chosenProduct = products.find(
-    (product) => product.id === Number(productId)
-  );
+  const chosenProduct = products.find((product) => product.id === productId);
 
   const currentProduct = getCurrentProduct(chosenProduct, productIndex);
 
@@ -35,9 +33,11 @@ function QuickShop() {
 
     const newProduct = {
       furnitureName: chosenProduct.furnitureName,
-      price: chosenProduct.price,
+      price: chosenProduct.saleItem
+        ? chosenProduct.salePrice
+        : chosenProduct.price,
       colors: chosenProduct.colors[productIndex],
-      images: chosenProduct.images,
+      images: chosenProduct.images[productIndex],
       id: chosenProduct.id,
       quantity: userInput,
     };

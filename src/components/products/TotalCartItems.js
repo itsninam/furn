@@ -1,6 +1,7 @@
 import React from "react";
 import { useProducts } from "../../contexts/ProductsContext";
 import { IoBagHandleOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 function TotalCartItems() {
   const { cartItems } = useProducts();
@@ -14,7 +15,9 @@ function TotalCartItems() {
   return (
     <div className="cart-container">
       <p>{totalCartItems}</p>
-      <IoBagHandleOutline className="cart-icon" />
+      <Link to="cart">
+        <IoBagHandleOutline className="cart-icon" />
+      </Link>
     </div>
   );
 }

@@ -12,8 +12,6 @@ function ProductColor({
   const { getSelectedProductColor } = useProducts();
   const location = useLocation();
 
-  console.log(location);
-
   const handleSelectColor = (index) => {
     setProductIndex(index);
 
