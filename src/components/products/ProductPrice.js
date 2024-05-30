@@ -4,15 +4,15 @@ function ProductPrice({ product }) {
   return (
     <div className="price-container">
       {product.saleItem && (
-        <p className="original-price">${product.salePrice}</p>
+        <p className="original-price">${product.salePrice.toLocaleString()}</p>
       )}
       <p>
         {product.saleItem ? (
           <span className={product.saleItem ? "sale-item" : ""}>
-            ${product.price}
+            ${product.price.toLocaleString()}
           </span>
         ) : (
-          `$${product.price}`
+          `$${product.price.toLocaleString()}`
         )}
 
         {product.saleItem ? (

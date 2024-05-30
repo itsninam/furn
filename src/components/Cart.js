@@ -32,9 +32,9 @@ function Cart() {
                       alt={item.furnitureName}
                     />
                   </td>
-                  <td>${item.price}</td>
+                  <td>${item.price.toLocaleString()}</td>
                   <td>{item.quantity}</td>
-                  <td>${item.quantity * item.price}</td>
+                  <td>${(item.quantity * item.price).toLocaleString()}</td>
                   <td onClick={() => handleRemoveItem(item)}>remove</td>
                 </tr>
               );
