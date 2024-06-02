@@ -14,7 +14,12 @@ function TotalCartItems() {
 
   return (
     <div className="cart-container">
-      <p>{totalCartItems}</p>
+      {totalCartItems && (
+        <p className="cart-count">
+          <span>{totalCartItems}</span>
+        </p>
+      )}
+
       <Link to="cart">
         <IoBagHandleOutline className="cart-icon" />
       </Link>
