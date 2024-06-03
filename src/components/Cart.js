@@ -1,5 +1,7 @@
 import React from "react";
 import { useProducts } from "../contexts/ProductsContext";
+import { FaRegTrashAlt } from "react-icons/fa";
+import SubHeader from "./SubHeader";
 
 function Cart() {
   const { cartItems, dispatch } = useProducts();
@@ -9,8 +11,9 @@ function Cart() {
   };
   return (
     <section>
+      <SubHeader label="Basket" className="cart-header" />
       {cartItems.length === 0 ? (
-        <p>Cart is empty</p>
+        <p className="empty-basket">Your basket is empty</p>
       ) : (
         <table>
           <tbody>
@@ -26,16 +29,23 @@ function Cart() {
               return (
                 <tr key={index}>
                   <td>
-                    <span>{item.furnitureName}</span>
-                    <img
-                      src={require(`../assets/images/${item.images.primaryImage}`)}
-                      alt={item.furnitureName}
-                    />
+                    <div className="item-container">
+                      <img
+                        src={require(`../assets/images/${item.images.primaryImage}`)}
+                        alt={item.furnitureName}
+                      />
+                      <div className="item-info">
+                        <span>{item.furnitureName}</span>
+                        <span>Color: {item.colors}</span>
+                      </div>
+                    </div>
                   </td>
                   <td>${item.price.toLocaleString()}</td>
                   <td>{item.quantity}</td>
                   <td>${(item.quantity * item.price).toLocaleString()}</td>
-                  <td onClick={() => handleRemoveItem(item)}>remove</td>
+                  <td onClick={() => handleRemoveItem(item)}>
+                    <FaRegTrashAlt className="remove-icon" />
+                  </td>
                 </tr>
               );
             })}
