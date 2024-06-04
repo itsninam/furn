@@ -1,4 +1,6 @@
 import React from "react";
+import { BsChevronRight } from "react-icons/bs";
+import { BsChevronLeft } from "react-icons/bs";
 
 function QuickShopImage({
   currentProduct,
@@ -21,12 +23,16 @@ function QuickShopImage({
   };
   return (
     <div className="image-container">
-      <button onClick={handleImgBack}>Back</button>
+      <button onClick={handleImgBack}>
+        <BsChevronLeft className="icon-left" />
+      </button>
       <img
         alt={chosenProduct.furnitureName}
         src={require(`../../assets/images/${images[imageIndex]}`)}
       />
-      <button onClick={handleImgNext}>Next</button>
+      <button onClick={handleImgNext}>
+        <BsChevronRight className="icon-right" />
+      </button>
     </div>
   );
 }

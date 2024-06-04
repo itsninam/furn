@@ -20,7 +20,9 @@ function Home() {
       {productCategories.map((category) => {
         return (
           <li key={category}>
-            <Link to={category}>shop {category}</Link>
+            <Link className="product-link" to={category}>
+              shop {category}
+            </Link>
 
             <img
               src={require(`../assets/images/${

@@ -59,6 +59,10 @@ h1 {
   margin: 0px;
 }
 
+h1 a {
+  color: var(--dark-grey);
+}
+
 .wrapper {
   max-width: 1920px;
   width: 90%;
@@ -188,11 +192,21 @@ img {
 
 .close-btn .close-icon {
   font-size: 3.5rem;
-  color: var(--light-grey);
+  color: var(--dark-grey);
 }
 
-.quick-shop-modal .flex-container {
-  gap: 0px;
+.close-icon:hover {
+  color: var(--accent-colour);
+}
+
+select {
+  border: 1px solid var(--dark-grey);
+  border-radius: 4px;
+  padding: 0px 8px;
+}
+
+select option:first-of-type {
+  margin-right: 8px;
 }
 
 .quick-shop-modal img {
@@ -201,9 +215,21 @@ img {
 }
 
 .image-container {
-  align-items: end;
   position: relative;
   display: flex;
+  align-items: center;
+}
+
+.icon-left,
+.icon-right {
+  height: 32px;
+  width: 32px;
+  color: var(--dark-grey);
+}
+
+.icon-left:hover,
+.icon-right:hover {
+  color: var(--accent-colour);
 }
 
 .loading-container {
@@ -287,6 +313,10 @@ section {
   position: relative;
 }
 
+.product-link:hover {
+  color: var(--accent-colour);
+}
+
 .shop-products a {
   position: absolute;
   bottom: 24px;
@@ -365,6 +395,9 @@ td {
 
 .filter-container {
   width: 150px;
+  position: sticky;
+  top: 150px;
+  align-self: flex-start;
 }
 
 p.hide {
