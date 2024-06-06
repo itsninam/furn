@@ -112,12 +112,12 @@ function ProductsProvider({ children }) {
     : "auto";
 
   const getCurrentProduct = (product, productIndex) => {
-    const currentProduct =
-      product.images.length > 1
-        ? product.images[productIndex]
-        : product.images[0];
+    console.log(product);
+    // const currentProduct =
+    //   product.length > 1 ? product[productIndex] : product[0];
 
-    return currentProduct;
+    // return currentProduct;
+    // console.log(product, productIndex);
   };
 
   const getSelectedProductColor = (colour) => {
@@ -167,6 +167,7 @@ function ProductsProvider({ children }) {
   };
 
   const onHandleImageHover = (event, imagePath, type) => {
+    // console.log(event.currentTarget, imagePath, type);
     if (type === "mouseOver") {
       event.currentTarget.firstChild.src = require(`../assets/images/${imagePath.secondaryImage}`);
       dispatch({

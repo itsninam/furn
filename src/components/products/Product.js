@@ -6,20 +6,31 @@ import ProductImage from "./ProductImage";
 import ProductPrice from "./ProductPrice";
 import { Outlet } from "react-router-dom";
 
-function Product({ product }) {
+function Product({
+  product,
+  handleColor,
+  isFilter,
+  selectedId,
+  curr,
+  current,
+}) {
   const { getCurrentProduct } = useProducts();
 
   const [productIndex, setProductIndex] = useState(0);
 
-  const currentProduct = getCurrentProduct(product, productIndex);
+  // const current = getCurrentProduct()
 
   return (
     <>
       <li>
         <ProductImage
           product={product}
-          currentProduct={currentProduct}
+          // currentProduct={currentProduct}
           productIndex={productIndex}
+          isFilter={isFilter}
+          selectedId={selectedId}
+          curr={curr}
+          // current={current}
         />
         <ProductPrice product={product} />
         <ProductColor
@@ -27,6 +38,7 @@ function Product({ product }) {
           setProductIndex={setProductIndex}
           productIndex={productIndex}
           isNumColorVisible={true}
+          handleColor={handleColor}
         />
       </li>
 

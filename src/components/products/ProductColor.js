@@ -8,6 +8,7 @@ function ProductColor({
   setImageIndex,
   isColorNameVisible,
   isNumColorVisible,
+  handleColor,
 }) {
   const { getSelectedProductColor } = useProducts();
   const location = useLocation();
@@ -31,25 +32,46 @@ function ProductColor({
       {isColorNameVisible && <p>Color: {product.colors[productIndex]}</p>}
 
       <div className="colors-container">
-        {product.colors.map((color, index) => {
+        {product.options.map((option, index) => {
           return (
             <button
-              key={index}
+              onClick={() => handleColor(option.color, product.id, index)}
               className={`btn-color ${index === productIndex ? "active" : ""}`}
-              onClick={() => handleSelectColor(index)}
-              style={{ backgroundColor: getSelectedProductColor(color) }}
+              style={{
+                backgroundColor: getSelectedProductColor(option.color),
+              }}
             ></button>
           );
         })}
 
         {isNumColorVisible && (
           <span>
-            {product.colors.length}
-            {product.colors.length > 1 ? " colors" : " color"}
+            {product.options.length}
+            {product.options.length > 1 ? " colors" : " color"}
           </span>
         )}
       </div>
     </>
+
+    // <div className="colors-container">
+    //   {product.colors.map((color, index) => {
+    //     return (
+    //       <button
+    //         key={index}
+    //         className={`btn-color ${index === productIndex ? "active" : ""}`}
+    //         onClick={() => handleSelectColor(index)}
+    //         style={{ backgroundColor: getSelectedProductColor(color) }}
+    //       ></button>
+    //     );
+    //   })}
+
+    //   {isNumColorVisible && (
+    //     <span>
+    //       {product.colors.length}
+    //       {product.colors.length > 1 ? " colors" : " color"}
+    //     </span>
+    //   )}
+    // </div>
   );
 }
 

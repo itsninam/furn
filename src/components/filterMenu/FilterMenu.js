@@ -1,7 +1,14 @@
 import React from "react";
 import FilterMenuItems from "./FilterMenuItems";
 
-function FilterMenu({ colors, filterItems, handleRemoveFilters }) {
+function FilterMenu({
+  colors,
+  filterItems,
+  handleRemoveFilters,
+  cols,
+  handleColor,
+  filter,
+}) {
   const filterMenuItems = [
     {
       category: "colors",
@@ -16,6 +23,18 @@ function FilterMenu({ colors, filterItems, handleRemoveFilters }) {
   return (
     <>
       <p className="filter-tag">Filter by: </p>
+      {cols.map((col) => {
+        return (
+          <p
+            onClick={() => {
+              handleColor(col);
+              filter(col);
+            }}
+          >
+            {col}
+          </p>
+        );
+      })}
 
       <ul>
         {filterMenuItems.map((item, index) => {

@@ -3,7 +3,15 @@ import { Link } from "react-router-dom";
 
 import ProductName from "./ProductName";
 
-const ProductImage = ({ product, currentProduct, productIndex }) => {
+const ProductImage = ({
+  product,
+  currentProduct,
+  productIndex,
+  selectedId,
+  curr,
+  isFilter,
+  current,
+}) => {
   const { onHandleImageHover, isQuickShopBtnVisible } = useProducts();
 
   return (
@@ -15,13 +23,21 @@ const ProductImage = ({ product, currentProduct, productIndex }) => {
         }}
         className="image-container"
         onMouseOver={(event) =>
-          onHandleImageHover(event, currentProduct, "mouseOver")
+          onHandleImageHover(
+            event,
+            isFilter ? curr[0]?.images[0] : product.options[0].images[0],
+            "mouseOver"
+          )
         }
         onMouseOut={(event) =>
-          onHandleImageHover(event, currentProduct, "mouseOut")
+          onHandleImageHover(
+            event,
+            isFilter ? curr[0]?.images[0] : product.options[0].images[0],
+            "mouseOut"
+          )
         }
       >
-        <img
+        {/* <img
           src={require(`../../assets/images/${currentProduct.primaryImage}`)}
           alt={product.furnitureName}
         />
@@ -30,6 +46,19 @@ const ProductImage = ({ product, currentProduct, productIndex }) => {
           <button className="btn-quickview">
             <span>Quick Shop</span>
           </button>
+        )} */}
+        {isFilter ? (
+          <img
+            src={require(`../../assets/images/${curr[0]?.images[0].primaryImage}`)}
+          />
+        ) : product.id === selectedId ? (
+          <img
+            src={require(`../../assets/images/${curr[0]?.images[0].primaryImage}`)}
+          />
+        ) : (
+          <img
+            src={require(`../../assets/images/${curr[0].images[0].primaryImage}`)}
+          />
         )}
       </Link>
       <ProductName product={product.furnitureName} />
