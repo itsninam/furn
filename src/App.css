@@ -88,6 +88,13 @@ button.primary {
   color: white;
   text-transform: uppercase;
   padding: 8px 16px;
+  border: 1px solid transparent;
+}
+
+.primary:hover {
+  background-color: #fff;
+  color: var(--accent-colour);
+  border: 1px solid var(--accent-colour);
 }
 
 .btn-quickview {
@@ -239,7 +246,7 @@ select option:first-of-type {
 }
 
 .product-description {
-  padding: 16px 0px;
+  padding: 16px 0px 40px 0px;
 }
 
 form {

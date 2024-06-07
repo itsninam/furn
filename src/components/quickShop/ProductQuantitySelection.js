@@ -1,7 +1,7 @@
 import { useProducts } from "../../contexts/ProductsContext";
 import Button from "../Button";
 
-function ProductQuantitySelection({ handleAddToBasket }) {
+function ProductQuantitySelection({ handleAddToBasket, buttonLabel }) {
   const { userInput, dispatch } = useProducts();
 
   return (
@@ -23,7 +23,11 @@ function ProductQuantitySelection({ handleAddToBasket }) {
           );
         })}
       </select>
-      <Button type="submit" btnType="primary" buttonLabel="Add to basket" />
+      <Button
+        type="submit"
+        btnType="primary"
+        buttonLabel={buttonLabel ? buttonLabel : "Add to basket"}
+      />
     </form>
   );
 }

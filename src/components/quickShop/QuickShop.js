@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useProducts } from "../../contexts/ProductsContext";
 import { useLocation } from "react-router-dom";
 
@@ -19,6 +19,7 @@ function QuickShop() {
 
   const [imageIndex, setImageIndex] = useState(0);
   const [productIndex, setProductIndex] = useState(Number(color));
+  const [buttonLabel, setButtonLabel] = useState("");
 
   const chosenProduct = products.find((product) => product.id === productId);
 
@@ -26,6 +27,7 @@ function QuickShop() {
 
   const handleAddToBasket = (event) => {
     event.preventDefault();
+    setButtonLabel("Item added!");
 
     if (!userInput || userInput === "select") {
       return;
@@ -43,6 +45,11 @@ function QuickShop() {
     };
 
     dispatch({ type: "add_to_cart", payload: newProduct });
+    if (newProduct) {
+      setTimeout(() => {
+        setButtonLabel("Add to basket");
+      }, 800);
+    }
   };
 
   return (
@@ -67,7 +74,10 @@ function QuickShop() {
               isColorNameVisible={true}
             />
             <ProductDescription />
-            <ProductQuantitySelection handleAddToBasket={handleAddToBasket} />
+            <ProductQuantitySelection
+              handleAddToBasket={handleAddToBasket}
+              buttonLabel={buttonLabel}
+            />
           </div>
         </div>
       </div>
