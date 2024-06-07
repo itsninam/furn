@@ -10,8 +10,9 @@ function Cart() {
     dispatch({ type: "remove_item", payload: item });
   };
   return (
-    <section>
+    <div className="cart-content">
       <SubHeader label="Basket" className="cart-header" />
+
       {cartItems.length === 0 ? (
         <p className="empty-basket">Your basket is empty</p>
       ) : (
@@ -52,7 +53,7 @@ function Cart() {
           </tbody>
         </table>
       )}
-    </section>
+    </div>
   );
 }
 

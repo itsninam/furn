@@ -389,6 +389,7 @@ td {
 .empty-basket {
   padding: 16px;
   border: 1px solid var(--light-grey);
+  margin-top: 2em;
 }
 
 /* Filter menu */
@@ -452,4 +453,38 @@ p.hide {
 .clear-btn:hover {
   text-decoration: none;
   color: var(--accent-colour);
+}
+
+/* cart page */
+.cart .flex-container {
+  justify-content: space-between;
+  gap: 80px;
+}
+
+.cart-content {
+  flex: 1;
+}
+
+/* order summary */
+.order-summary-list {
+  width: 350px;
+  border: 1px solid var(--light-grey);
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.order-summary-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0px;
+}
+
+.order-summary-container h3 {
+  margin-top: 0px;
+}
+
+.order-summary-container {
+  position: sticky;
+  top: 136px;
+  align-self: flex-start;
 }

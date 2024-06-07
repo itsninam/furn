@@ -7,7 +7,7 @@ import ProductList from "./components/products/ProductList";
 import Home from "./components/Home";
 import QuickShop from "./components/quickShop/QuickShop";
 import Navigation from "./components/Navigation";
-import Cart from "./components/Cart";
+import CartPage from "./components/CartPage";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
           <Route path=":productCategory" element={<ProductList />}>
             <Route path="quickshop" element={<QuickShop />} />
           </Route>
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/cart" element={<CartPage />} />
         </Routes>
       </Main>
     </ProductsProvider>
