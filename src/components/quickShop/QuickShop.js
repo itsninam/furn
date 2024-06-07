@@ -27,7 +27,6 @@ function QuickShop() {
 
   const handleAddToBasket = (event) => {
     event.preventDefault();
-    setButtonLabel("Item added!");
 
     if (!userInput || userInput === "select") {
       return;
@@ -46,6 +45,7 @@ function QuickShop() {
 
     dispatch({ type: "add_to_cart", payload: newProduct });
     if (newProduct) {
+      setButtonLabel("Item added!");
       setTimeout(() => {
         setButtonLabel("Add to basket");
       }, 800);
