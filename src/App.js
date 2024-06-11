@@ -3,12 +3,11 @@ import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
 import Main from "./components/Main";
-// import ProductList from "./components/products/ProductList";
+import ProductList from "./components/products/ProductList";
 import Home from "./components/Home";
 import QuickShop from "./components/quickShop/QuickShop";
 import Navigation from "./components/Navigation";
 import CartPage from "./components/CartPage";
-import ProductList from "./components/redo/ProductList";
 
 function App() {
   return (
@@ -16,11 +15,11 @@ function App() {
       <Navigation />
       <Main>
         <Routes>
-          <Route path="/" element={<ProductList />} />
-          {/* <Route path=":productCategory" element={<ProductList />}>
+          <Route path="/" element={<Home />} />
+          <Route path=":productCategory" element={<ProductList />}>
             <Route path="quickshop" element={<QuickShop />} />
           </Route>
-          <Route path="/cart" element={<CartPage />} /> */}
+          <Route path="/cart" element={<CartPage />} />
         </Routes>
       </Main>
     </ProductsProvider>

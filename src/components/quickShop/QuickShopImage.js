@@ -8,7 +8,7 @@ function QuickShopImage({
   imageIndex,
   setImageIndex,
 }) {
-  const images = Object.values(currentProduct).flat(1);
+  const images = Object.values(currentProduct.images).flat(1);
 
   const handleImgNext = () => {
     return imageIndex < images.length - 1

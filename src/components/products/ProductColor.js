@@ -1,51 +1,62 @@
-import { useLocation } from "react-router-dom";
 import { useProducts } from "../../contexts/ProductsContext";
+import { useLocation } from "react-router-dom";
 
 function ProductColor({
   product,
   setProductIndex,
   productIndex,
-  setImageIndex,
+  setProductImage,
   isColorNameVisible,
   isNumColorVisible,
+  currentProducts,
+  setIsFilter,
 }) {
   const { getSelectedProductColor } = useProducts();
   const location = useLocation();
 
-  const handleSelectColor = (index) => {
+  const handleSelectColor = (color, id, index) => {
     setProductIndex(index);
-
     if (location.pathname.includes("/quickshop")) {
-      setImageIndex(0);
-
       const colorParam = new URLSearchParams(location.search);
 
-      colorParam.set("color", index);
+      colorParam.set("color", color);
 
       window.history.replaceState({}, "", `?${colorParam.toString()}`);
+    } else {
+      setProductImage(
+        currentProducts
+          .find((product) => product.id === id)
+          .options.find((option) => option.color === color)
+      );
+      setIsFilter(false);
     }
   };
 
   return (
     <>
-      {isColorNameVisible && <p>Color: {product.colors[productIndex]}</p>}
+      {isColorNameVisible && (
+        <p>
+          Color:{" "}
+          {product.options.flatMap((option) => option)[productIndex].color}
+        </p>
+      )}
 
       <div className="colors-container">
-        {product.colors.map((color, index) => {
+        {product.options.map((option, index) => {
           return (
             <button
               key={index}
               className={`btn-color ${index === productIndex ? "active" : ""}`}
-              onClick={() => handleSelectColor(index)}
-              style={{ backgroundColor: getSelectedProductColor(color) }}
+              onClick={() => handleSelectColor(option.color, product.id, index)}
+              style={{ backgroundColor: getSelectedProductColor(option.color) }}
             ></button>
           );
         })}
 
         {isNumColorVisible && (
           <span>
-            {product.colors.length}
-            {product.colors.length > 1 ? " colors" : " color"}
+            {product.options.length}
+            {product.options.length > 1 ? " colors" : " color"}
           </span>
         )}
       </div>

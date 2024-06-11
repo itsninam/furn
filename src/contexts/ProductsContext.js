@@ -113,9 +113,9 @@ function ProductsProvider({ children }) {
 
   const getCurrentProduct = (product, productIndex) => {
     const currentProduct =
-      product.images.length > 1
-        ? product.images[productIndex]
-        : product.images[0];
+      product.options.length > 1
+        ? product.options[productIndex]
+        : product.options[0];
 
     return currentProduct;
   };
@@ -168,13 +168,13 @@ function ProductsProvider({ children }) {
 
   const onHandleImageHover = (event, imagePath, type) => {
     if (type === "mouseOver") {
-      event.currentTarget.firstChild.src = require(`../assets/images/${imagePath.secondaryImage}`);
+      event.target.src = require(`../assets/images/${imagePath}`);
       dispatch({
         type: "show_quickshop_btn",
-        payload: imagePath.secondaryImage,
+        payload: imagePath,
       });
     } else if (type === "mouseOut") {
-      event.currentTarget.firstChild.src = require(`../assets/images/${imagePath.primaryImage}`);
+      event.target.src = require(`../assets/images/${imagePath}`);
       dispatch({ type: "show_quickshop_btn", payload: null });
     }
   };

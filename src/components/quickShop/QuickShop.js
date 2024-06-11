@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useProducts } from "../../contexts/ProductsContext";
 import { useLocation } from "react-router-dom";
 
@@ -16,12 +16,19 @@ function QuickShop() {
 
   const productId = new URLSearchParams(search).get("item");
   const color = new URLSearchParams(search).get("color");
+  const chosenProduct = products.find(
+    (product) => product.id === Number(productId)
+  );
 
   const [imageIndex, setImageIndex] = useState(0);
-  const [productIndex, setProductIndex] = useState(Number(color));
-  const [buttonLabel, setButtonLabel] = useState("");
 
-  const chosenProduct = products.find((product) => product.id === productId);
+  const [productIndex, setProductIndex] = useState(
+    chosenProduct.options
+      .map((option) => option)
+      .map((opt) => opt.color)
+      .indexOf(`${color}`)
+  );
+  const [buttonLabel, setButtonLabel] = useState("");
 
   const currentProduct = getCurrentProduct(chosenProduct, productIndex);
 
@@ -37,8 +44,8 @@ function QuickShop() {
       price: chosenProduct.saleItem
         ? chosenProduct.salePrice
         : chosenProduct.price,
-      colors: chosenProduct.colors[productIndex],
-      images: chosenProduct.images[productIndex],
+      colors: chosenProduct.options[productIndex].color,
+      images: chosenProduct.options[productIndex].images,
       id: chosenProduct.id,
       quantity: userInput,
     };

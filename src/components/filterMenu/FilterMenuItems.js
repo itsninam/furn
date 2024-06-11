@@ -21,13 +21,14 @@ function FilterMenuItems({ item, filterItems }) {
             key={index}
             className={`filter-item ${isOpen ? "" : "hide"}`}
             onClick={() => {
-              filterItems(item.category, category);
+              filterItems(category);
             }}
           >
             {category === "true" ? "Limited items" : category}
           </p>
         );
       })}
+      <p>{item.color}</p>
     </>
   );
 }

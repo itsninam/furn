@@ -10,6 +10,7 @@ function ProductList() {
   const { isLoading, products } = useProducts();
   const params = useParams();
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [isFilter, setIsFilter] = useState(false);
 
   useEffect(() => {
     setFilteredProducts(
@@ -18,27 +19,31 @@ function ProductList() {
   }, [products, params.productCategory]);
 
   const currentProducts = products.filter(
-    (product) => product.category === params.productCategory
+    (product) => product.category === "dining-tables"
   );
 
-  const filterItems = (itemCategory, selectedItem) => {
-    if (itemCategory === "colors") {
-      setFilteredProducts(
-        currentProducts.filter((item) =>
-          item[`${itemCategory}`].includes(selectedItem)
-        )
-      );
-    } else {
-      setFilteredProducts(
-        currentProducts.filter(
-          (item) => item[`${itemCategory}`] === Boolean(selectedItem)
-        )
-      );
-    }
+  const filterItems = (color) => {
+    const filtered = currentProducts
+      .map((product) => {
+        const filteredOptions = product.options.filter(
+          (option) => option.color === color
+        );
+        if (filteredOptions.length > 0) {
+          return { ...product, options: filteredOptions };
+        }
+        return null;
+      })
+      .filter((product) => product !== null);
+    setFilteredProducts(filtered);
+    setIsFilter(true);
   };
 
   const colors = [
-    ...new Set(currentProducts.flatMap((product) => product.colors)),
+    ...new Set(
+      currentProducts.flatMap((product) =>
+        product.options.map((option) => option.color)
+      )
+    ),
   ];
 
   const handleRemoveFilters = () => {
@@ -58,11 +63,20 @@ function ProductList() {
           handleRemoveFilters={handleRemoveFilters}
         />
       </div>
-      {filteredProducts.length === 0 && "No products found"}
       <ul className="product-list">
-        {filteredProducts.map((product) => {
-          return <Product product={product} key={product.id} />;
-        })}
+        {filteredProducts.length === 0
+          ? "No products found"
+          : filteredProducts.map((product) => {
+              return (
+                <Product
+                  product={product}
+                  key={product.id}
+                  setIsFilter={setIsFilter}
+                  isFilter={isFilter}
+                  currentProducts={currentProducts}
+                />
+              );
+            })}
       </ul>
     </section>
   );
