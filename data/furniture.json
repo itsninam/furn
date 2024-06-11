@@ -5,14 +5,16 @@
       "price": 1398.0,
       "saleItem": false,
       "salePrice": null,
-      "colors": ["marble + wood"],
       "category": "dining-tables",
       "rating": [0],
-      "images": [
+      "options": [
         {
-          "primaryImage": "scout-1.webp",
-          "secondaryImage": "scout-2.webp",
-          "tertiaryImages": ["scout-3.webp", "scout-4.webp"]
+          "color": "marble",
+          "images": {
+            "primaryImage": "scout-1.webp",
+            "secondaryImage": "scout-2.webp",
+            "tertiaryImages": ["scout-3.webp", "scout-4.webp"]
+          }
         }
       ],
       "id": 73930385
@@ -22,14 +24,16 @@
       "price": 1898.0,
       "saleItem": false,
       "salePrice": null,
-      "colors": ["light sand"],
       "category": "dining-tables",
       "rating": [0],
-      "images": [
+      "options": [
         {
-          "primaryImage": "maja-1.webp",
-          "secondaryImage": "maja-2.webp",
-          "tertiaryImages": ["maja-3.webp", "maja-4.webp"]
+          "color": "sand",
+          "images": {
+            "primaryImage": "maja-1.webp",
+            "secondaryImage": "maja-2.webp",
+            "tertiaryImages": ["maja-3.webp", "maja-4.webp"]
+          }
         }
       ],
       "id": 73930386
@@ -39,19 +43,24 @@
       "price": 1798.4,
       "saleItem": true,
       "salePrice": 1438.0,
-      "colors": ["black", "white"],
       "category": "dining-tables",
       "rating": [0],
-      "images": [
+      "options": [
         {
-          "primaryImage": "sonali-1a.webp",
-          "secondaryImage": "sonali-2a.webp",
-          "tertiaryImages": ["sonali-3a.webp", "sonali-4a.webp"]
+          "color": "black",
+          "images": {
+            "primaryImage": "sonali-1a.webp",
+            "secondaryImage": "sonali-2a.webp",
+            "tertiaryImages": ["sonali-3a.webp", "sonali-4a.webp"]
+          }
         },
         {
-          "primaryImage": "sonali-1b.webp",
-          "secondaryImage": "sonali-2b.webp",
-          "tertiaryImages": ["sonali-3b.webp", "sonali-4b.webp"]
+          "color": "white",
+          "images": {
+            "primaryImage": "sonali-1b.webp",
+            "secondaryImage": "sonali-2b.webp",
+            "tertiaryImages": ["sonali-3b.webp", "sonali-4b.webp"]
+          }
         }
       ],
       "id": 73930387
@@ -61,24 +70,32 @@
       "price": 388.0,
       "saleItem": true,
       "salePrice": 271.6,
-      "colors": ["white", "yellow", "mint"],
       "category": "dining-tables",
       "rating": [0],
-      "images": [
+      "options": [
         {
-          "primaryImage": "arcadia-1a.webp",
-          "secondaryImage": "arcadia-2a.webp",
-          "tertiaryImages": ["arcadia-3a.webp", "arcadia-4a.webp"]
+          "color": "white",
+          "images": {
+            "primaryImage": "arcadia-1a.webp",
+            "secondaryImage": "arcadia-2a.webp",
+            "tertiaryImages": ["arcadia-3a.webp", "arcadia-4a.webp"]
+          }
         },
         {
-          "primaryImage": "arcadia-1b.webp",
-          "secondaryImage": "arcadia-2b.webp",
-          "tertiaryImages": ["arcadia-3b.webp", "arcadia-4b.webp"]
+          "color": "yellow",
+          "images": {
+            "primaryImage": "arcadia-1b.webp",
+            "secondaryImage": "arcadia-2b.webp",
+            "tertiaryImages": ["arcadia-3b.webp", "arcadia-4b.webp"]
+          }
         },
         {
-          "primaryImage": "arcadia-1c.webp",
-          "secondaryImage": "arcadia-2c.webp",
-          "tertiaryImages": ["arcadia-3c.webp", "arcadia-4c.webp"]
+          "color": "mint",
+          "images": {
+            "primaryImage": "arcadia-1c.webp",
+            "secondaryImage": "arcadia-2c.webp",
+            "tertiaryImages": ["arcadia-3c.webp", "arcadia-4c.webp"]
+          }
         }
       ],
       "id": 73930388
@@ -88,19 +105,24 @@
       "price": 698.0,
       "saleItem": true,
       "salePrice": 488.6,
-      "colors": ["blue", "green"],
       "category": "dining-tables",
       "rating": [0],
-      "images": [
+      "options": [
         {
-          "primaryImage": "grenada-1a.webp",
-          "secondaryImage": "grenada-2a.webp",
-          "tertiaryImages": ["grenada-3a.webp", "grenada-4a.webp"]
+          "color": "blue",
+          "images": {
+            "primaryImage": "grenada-1a.webp",
+            "secondaryImage": "grenada-2a.webp",
+            "tertiaryImages": ["grenada-3a.webp", "grenada-4a.webp"]
+          }
         },
         {
-          "primaryImage": "grenada-1b.webp",
-          "secondaryImage": "grenada-2b.webp",
-          "tertiaryImages": ["grenada-3b.webp", "grenada-4b.webp"]
+          "color": "green",
+          "images": {
+            "primaryImage": "grenada-1b.webp",
+            "secondaryImage": "grenada-2b.webp",
+            "tertiaryImages": ["grenada-3b.webp", "grenada-4b.webp"]
+          }
         }
       ],
       "id": 73930389
@@ -110,14 +132,16 @@
       "price": 1898.0,
       "saleItem": false,
       "salePrice": null,
-      "colors": ["neutral"],
       "category": "dining-tables",
       "rating": [0],
-      "images": [
+      "options": [
         {
-          "primaryImage": "kalle-1.webp",
-          "secondaryImage": "kalle-2.webp",
-          "tertiaryImages": ["kalle-3.webp", "kalle-4.webp"]
+          "color": "neutral",
+          "images": {
+            "primaryImage": "kalle-1.webp",
+            "secondaryImage": "kalle-2.webp",
+            "tertiaryImages": ["kalle-3.webp", "kalle-4.webp"]
+          }
         }
       ],
       "id": 73930390
@@ -127,19 +151,24 @@
       "price": 698.0,
       "saleItem": true,
       "salePrice": 488.6,
-      "colors": ["black", "butterscotch"],
       "category": "chairs",
       "rating": [0],
-      "images": [
+      "options": [
         {
-          "primaryImage": "leather-1a.webp",
-          "secondaryImage": "leather-2a.webp",
-          "tertiaryImages": ["sonali-3a.webp", "leather-4a.webp"]
+          "color": "black",
+          "images": {
+            "primaryImage": "leather-1a.webp",
+            "secondaryImage": "leather-2a.webp",
+            "tertiaryImages": ["sonali-3a.webp", "leather-4a.webp"]
+          }
         },
         {
-          "primaryImage": "leather-1b.webp",
-          "secondaryImage": "leather-2b.webp",
-          "tertiaryImages": ["leather-3b.webp", "leather-4b.webp"]
+          "color": "butterscotch",
+          "images": {
+            "primaryImage": "leather-1b.webp",
+            "secondaryImage": "leather-2b.webp",
+            "tertiaryImages": ["leather-3b.webp", "leather-4b.webp"]
+          }
         }
       ],
       "id": 73930391
@@ -149,14 +178,16 @@
       "price": 1198.0,
       "saleItem": false,
       "salePrice": null,
-      "colors": ["assorted"],
       "category": "chairs",
       "rating": [0],
-      "images": [
+      "options": [
         {
-          "primaryImage": "lana-1.webp",
-          "secondaryImage": "lana-2.webp",
-          "tertiaryImages": ["lana-3.webp", "lana-4.webp"]
+          "color": "assorted",
+          "images": {
+            "primaryImage": "lana-1.webp",
+            "secondaryImage": "lana-2.webp",
+            "tertiaryImages": ["lana-3.webp", "lana-4.webp"]
+          }
         }
       ],
       "id": 73930392
@@ -166,19 +197,24 @@
       "price": 1698.0,
       "saleItem": false,
       "salePrice": null,
-      "colors": ["light sand", "light green"],
       "category": "chairs",
       "rating": [0],
-      "images": [
+      "options": [
         {
-          "primaryImage": "florence-1a.webp",
-          "secondaryImage": "florence-2a.webp",
-          "tertiaryImages": ["florence-3a.webp", "florence-4a.webp"]
+          "color": "sand",
+          "images": {
+            "primaryImage": "florence-1a.webp",
+            "secondaryImage": "florence-2a.webp",
+            "tertiaryImages": ["florence-3a.webp", "florence-4a.webp"]
+          }
         },
         {
-          "primaryImage": "florence-1b.webp",
-          "secondaryImage": "florence-2b.webp",
-          "tertiaryImages": ["florence-3b.webp", "florence-4b.webp"]
+          "color": "green",
+          "images": {
+            "primaryImage": "florence-1b.webp",
+            "secondaryImage": "florence-2b.webp",
+            "tertiaryImages": ["florence-3b.webp", "florence-4b.webp"]
+          }
         }
       ],
       "id": 73930393

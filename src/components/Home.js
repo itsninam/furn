@@ -26,7 +26,7 @@ function Home() {
 
             <img
               src={require(`../assets/images/${
-                getImages(category)[0].images[0].primaryImage
+                getImages(category)[0].options[0].images.primaryImage
               }`)}
               alt={category}
             />

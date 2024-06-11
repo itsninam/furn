@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import ProductName from "./ProductName";
 
-const ProductImage = ({ product, currentProduct, productIndex }) => {
+const ProductImage = ({ product, selectedImage }) => {
   const { onHandleImageHover, isQuickShopBtnVisible } = useProducts();
 
   return (
@@ -11,22 +11,29 @@ const ProductImage = ({ product, currentProduct, productIndex }) => {
       <Link
         to={{
           pathname: "quickshop",
-          search: `?item=${product.id}&color=${productIndex}`,
+          search: `?item=${product.id}&color=${selectedImage.color}`,
         }}
         className="image-container"
         onMouseOver={(event) =>
-          onHandleImageHover(event, currentProduct, "mouseOver")
+          onHandleImageHover(
+            event,
+            selectedImage.images.secondaryImage,
+            "mouseOver"
+          )
         }
         onMouseOut={(event) =>
-          onHandleImageHover(event, currentProduct, "mouseOut")
+          onHandleImageHover(
+            event,
+            selectedImage.images.primaryImage,
+            "mouseOut"
+          )
         }
       >
         <img
-          src={require(`../../assets/images/${currentProduct.primaryImage}`)}
-          alt={product.furnitureName}
+          src={require(`../../assets/images/${selectedImage.images.primaryImage}`)}
+          alt={product.name}
         />
-
-        {isQuickShopBtnVisible === currentProduct.secondaryImage && (
+        {isQuickShopBtnVisible === selectedImage.images.secondaryImage && (
           <button className="btn-quickview">
             <span>Quick Shop</span>
           </button>
