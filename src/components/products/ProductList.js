@@ -7,10 +7,9 @@ import { useEffect, useState } from "react";
 import FilterMenu from "../filterMenu/FilterMenu";
 
 function ProductList() {
-  const { isLoading, products } = useProducts();
+  const { isLoading, products, setIsProductFiltered } = useProducts();
   const params = useParams();
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [isFilter, setIsFilter] = useState(false);
 
   useEffect(() => {
     setFilteredProducts(
@@ -19,7 +18,7 @@ function ProductList() {
   }, [products, params.productCategory]);
 
   const currentProducts = products.filter(
-    (product) => product.category === "dining-tables"
+    (product) => product.category === params.productCategory
   );
 
   const filterItems = (color) => {
@@ -35,7 +34,7 @@ function ProductList() {
       })
       .filter((product) => product !== null);
     setFilteredProducts(filtered);
-    setIsFilter(true);
+    setIsProductFiltered(true);
   };
 
   const colors = [
@@ -71,8 +70,6 @@ function ProductList() {
                 <Product
                   product={product}
                   key={product.id}
-                  setIsFilter={setIsFilter}
-                  isFilter={isFilter}
                   currentProducts={currentProducts}
                 />
               );

@@ -1,4 +1,10 @@
-import { createContext, useReducer, useEffect, useContext } from "react";
+import {
+  createContext,
+  useReducer,
+  useEffect,
+  useContext,
+  useState,
+} from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function reducer(state, action) {
@@ -94,6 +100,7 @@ const ProductsContext = createContext();
 const BASE_URL = "http://localhost:9000";
 
 function ProductsProvider({ children }) {
+  const [isProductFiltered, setIsProductFiltered] = useState(false);
   const [state, dispatch] = useReducer(reducer, initialState);
   const {
     isLoading,
@@ -198,6 +205,8 @@ function ProductsProvider({ children }) {
         isImageLoading,
         userInput,
         cartItems,
+        isProductFiltered,
+        setIsProductFiltered,
       }}
     >
       {children}

@@ -9,9 +9,9 @@ function ProductColor({
   isColorNameVisible,
   isNumColorVisible,
   currentProducts,
-  setIsFilter,
 }) {
-  const { getSelectedProductColor } = useProducts();
+  const { getSelectedProductColor, setIsProductFiltered, isProductFiltered } =
+    useProducts();
   const location = useLocation();
 
   const handleSelectColor = (color, id, index) => {
@@ -28,7 +28,7 @@ function ProductColor({
           .find((product) => product.id === id)
           .options.find((option) => option.color === color)
       );
-      setIsFilter(false);
+      setIsProductFiltered(false);
     }
   };
 

@@ -1,17 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import ProductColor from "./ProductColor";
 import ProductImage from "./ProductImage";
 import ProductPrice from "./ProductPrice";
 import { Outlet } from "react-router-dom";
+import { useProducts } from "../../contexts/ProductsContext";
 
-function Product({ product, setIsFilter, isFilter, currentProducts }) {
+function Product({ product, currentProducts }) {
+  const { isProductFiltered } = useProducts();
   const [productImage, setProductImage] = useState(product.options[0]);
   const [productIndex, setProductIndex] = useState(0);
 
-  const selectedImage = isFilter ? product.options[0] : productImage;
+  const selectedImage = isProductFiltered ? product.options[0] : productImage;
 
-  console.log(productIndex);
+  useEffect(() => {
+    isProductFiltered && setProductIndex(0);
+  }, [isProductFiltered]);
 
   return (
     <>
@@ -24,7 +28,6 @@ function Product({ product, setIsFilter, isFilter, currentProducts }) {
           productIndex={productIndex}
           isNumColorVisible={true}
           currentProducts={currentProducts}
-          setIsFilter={setIsFilter}
           setProductImage={setProductImage}
         />
       </li>
