@@ -1,12 +1,10 @@
-import React, { useState } from "react";
 import SubHeader from "../SubHeader";
 import Button from "../Button";
 import { useProducts } from "../../contexts/ProductsContext";
 import CountrySelector from "./CountrySelector";
 
 function OrderSummary() {
-  const { cartItems } = useProducts();
-  const [userInput, setUserInput] = useState("");
+  const { cartItems, shippingSelection } = useProducts();
 
   const totalPrice = cartItems.reduce(
     (accumulator, currentValue) =>
@@ -15,9 +13,8 @@ function OrderSummary() {
   );
 
   const getEstimatedTax = () => {
-    if (userInput) {
-      console.log(0.013 * totalPrice);
-      const tax = userInput === "10" ? 0.013 : 0.015;
+    if (shippingSelection) {
+      const tax = shippingSelection === 10 ? 0.013 : 0.015;
       return tax;
     }
   };
@@ -39,12 +36,12 @@ function OrderSummary() {
         </li>
         <li>
           <span>Shipping</span>
-          <CountrySelector userInput={userInput} setUserInput={setUserInput} />
+          <CountrySelector />
         </li>
         <li>
           <span>Estimated tax</span>
           <span>
-            {userInput
+            {shippingSelection
               ? `$${estimatedTax.toLocaleString(undefined, {
                   minimumFractionDigits: 2,
                 })}`
@@ -54,10 +51,10 @@ function OrderSummary() {
         <li>
           <span>Total</span>
           <span>
-            {userInput
+            {shippingSelection
               ? `$${(
                   totalPrice +
-                  Number(userInput) +
+                  Number(shippingSelection) +
                   estimatedTax
                 ).toLocaleString(undefined, { minimumFractionDigits: 2 })}`
               : `$${totalPrice.toLocaleString(undefined, {

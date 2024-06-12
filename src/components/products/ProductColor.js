@@ -10,8 +10,7 @@ function ProductColor({
   isNumColorVisible,
   currentProducts,
 }) {
-  const { getSelectedProductColor, setIsProductFiltered, isProductFiltered } =
-    useProducts();
+  const { getSelectedProductColor, setIsProductFiltered } = useProducts();
   const location = useLocation();
 
   const handleSelectColor = (color, id, index) => {

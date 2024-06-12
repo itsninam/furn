@@ -13,17 +13,17 @@ function TotalCartItems() {
       .reduce((acc, curr) => acc + parseInt(curr), 0);
 
   return (
-    <div className="cart-container">
-      {totalCartItems && (
-        <p className="cart-count">
-          <span>{totalCartItems}</span>
-        </p>
-      )}
+    <Link to="cart">
+      <div className="cart-container">
+        {totalCartItems && (
+          <p className="cart-count">
+            <span>{totalCartItems}</span>
+          </p>
+        )}
 
-      <Link to="cart">
         <IoBagHandleOutline className="cart-icon" />
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 }
 

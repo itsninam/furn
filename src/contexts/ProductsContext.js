@@ -75,11 +75,21 @@ function reducer(state, action) {
       }
     }
     case "remove_item": {
+      const updatedCartItems = state.cartItems.filter(
+        (item) => item.colors !== action.payload.colors
+      );
+
       return {
         ...state,
-        cartItems: state.cartItems.filter(
-          (item) => item.colors !== action.payload.colors
-        ),
+        cartItems: updatedCartItems,
+        shippingSelection:
+          updatedCartItems.length === 0 ? 0 : state.shippingSelection,
+      };
+    }
+    case "shipping_selection": {
+      return {
+        ...state,
+        shippingSelection: action.payload,
       };
     }
     default:
@@ -94,6 +104,7 @@ const initialState = {
   isImageLoading: true,
   userInput: "",
   cartItems: JSON.parse(localStorage.getItem("cartItems")) || [],
+  shippingSelection: "",
 };
 
 const ProductsContext = createContext();
@@ -109,6 +120,7 @@ function ProductsProvider({ children }) {
     isImageLoading,
     userInput,
     cartItems,
+    shippingSelection,
   } = state;
 
   const navigate = useNavigate();
@@ -207,6 +219,7 @@ function ProductsProvider({ children }) {
         cartItems,
         isProductFiltered,
         setIsProductFiltered,
+        shippingSelection,
       }}
     >
       {children}
