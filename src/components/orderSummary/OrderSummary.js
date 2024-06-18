@@ -2,9 +2,10 @@ import SubHeader from "../SubHeader";
 import Button from "../Button";
 import { useProducts } from "../../contexts/ProductsContext";
 import CountrySelector from "./CountrySelector";
+import PromoCode from "./PromoCode";
 
 function OrderSummary() {
-  const { cartItems, shippingSelection } = useProducts();
+  const { cartItems, shippingSelection, promoCode } = useProducts();
 
   const totalPrice = cartItems.reduce(
     (accumulator, currentValue) =>
@@ -20,6 +21,15 @@ function OrderSummary() {
   };
 
   const estimatedTax = getEstimatedTax() * totalPrice;
+
+  const priceTotal = shippingSelection
+    ? (totalPrice + Number(shippingSelection) + estimatedTax).toLocaleString(
+        undefined,
+        { minimumFractionDigits: 2 }
+      )
+    : totalPrice.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+      });
 
   return (
     <div className="order-summary-container">
@@ -51,17 +61,10 @@ function OrderSummary() {
         <li>
           <span>Total</span>
           <span>
-            {shippingSelection
-              ? `$${(
-                  totalPrice +
-                  Number(shippingSelection) +
-                  estimatedTax
-                ).toLocaleString(undefined, { minimumFractionDigits: 2 })}`
-              : `$${totalPrice.toLocaleString(undefined, {
-                  minimumFractionDigits: 2,
-                })}`}
+            ${promoCode ? priceTotal - (priceTotal * 20) / 100 : priceTotal}
           </span>
         </li>
+        <PromoCode />
         <Button btnType="primary" buttonLabel="Proceed to checkout" />
       </ul>
     </div>

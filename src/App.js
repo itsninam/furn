@@ -8,10 +8,12 @@ import Home from "./components/Home";
 import QuickShop from "./components/quickShop/QuickShop";
 import Navigation from "./components/Navigation";
 import CartPage from "./components/CartPage";
+import Banner from "./components/Banner";
 
 function App() {
   return (
     <ProductsProvider>
+      <Banner />
       <Navigation />
       <Main>
         <Routes>

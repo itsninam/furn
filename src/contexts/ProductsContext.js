@@ -92,6 +92,12 @@ function reducer(state, action) {
         shippingSelection: action.payload,
       };
     }
+    case "apply_promo": {
+      return {
+        ...state,
+        promoCode: action.payload,
+      };
+    }
     default:
       return "Unrecognized command";
   }
@@ -105,6 +111,7 @@ const initialState = {
   userInput: "",
   cartItems: JSON.parse(localStorage.getItem("cartItems")) || [],
   shippingSelection: "",
+  promoCode: "",
 };
 
 const ProductsContext = createContext();
@@ -121,6 +128,7 @@ function ProductsProvider({ children }) {
     userInput,
     cartItems,
     shippingSelection,
+    promoCode,
   } = state;
 
   const navigate = useNavigate();
@@ -220,6 +228,7 @@ function ProductsProvider({ children }) {
         isProductFiltered,
         setIsProductFiltered,
         shippingSelection,
+        promoCode,
       }}
     >
       {children}

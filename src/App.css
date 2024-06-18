@@ -249,12 +249,13 @@ select option:first-of-type {
   padding: 16px 0px 40px 0px;
 }
 
-form {
+form,
+.product-quantity-form {
   display: flex;
   gap: 16px;
 }
 
-form button {
+.product-quantity-form button {
   width: 100%;
 }
 
@@ -494,4 +495,15 @@ p.hide {
   position: sticky;
   top: 136px;
   align-self: flex-start;
+}
+
+/* banner */
+
+.banner {
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  align-items: center;
+  background-color: var(--neutral-colour);
 }

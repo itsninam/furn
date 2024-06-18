@@ -5,7 +5,7 @@ function ProductQuantitySelection({ handleAddToBasket, buttonLabel }) {
   const { userInput, dispatch } = useProducts();
 
   return (
-    <form onSubmit={handleAddToBasket}>
+    <form onSubmit={handleAddToBasket} className="product-quantity-form">
       <select
         name="productQuantity"
         id="productQuantity"
