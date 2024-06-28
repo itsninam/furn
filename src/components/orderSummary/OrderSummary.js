@@ -5,7 +5,8 @@ import CountrySelector from "./CountrySelector";
 import PromoCode from "./PromoCode";
 
 function OrderSummary() {
-  const { cartItems, shippingSelection, promoCode } = useProducts();
+  const { cartItems, shippingSelection, promoCodeApply, promoCode } =
+    useProducts();
 
   const totalPrice = cartItems.reduce(
     (accumulator, currentValue) =>
@@ -23,13 +24,8 @@ function OrderSummary() {
   const estimatedTax = getEstimatedTax() * totalPrice;
 
   const priceTotal = shippingSelection
-    ? (totalPrice + Number(shippingSelection) + estimatedTax).toLocaleString(
-        undefined,
-        { minimumFractionDigits: 2 }
-      )
-    : totalPrice.toLocaleString(undefined, {
-        minimumFractionDigits: 2,
-      });
+    ? totalPrice + Number(shippingSelection) + estimatedTax
+    : totalPrice;
 
   return (
     <div className="order-summary-container">
@@ -61,7 +57,15 @@ function OrderSummary() {
         <li>
           <span>Total</span>
           <span>
-            ${promoCode ? priceTotal - (priceTotal * 20) / 100 : priceTotal}
+            $
+            {promoCodeApply === promoCode.toLowerCase()
+              ? (priceTotal - (priceTotal * 20) / 100).toLocaleString(
+                  undefined,
+                  { minimumFractionDigits: 2 }
+                )
+              : priceTotal.toLocaleString(undefined, {
+                  minimumFractionDigits: 2,
+                })}
           </span>
         </li>
         <PromoCode />

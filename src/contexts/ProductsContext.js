@@ -92,10 +92,33 @@ function reducer(state, action) {
         shippingSelection: action.payload,
       };
     }
+    case "obtain_promo": {
+      return {
+        ...state,
+        promoCodeInput: action.payload,
+      };
+    }
     case "apply_promo": {
       return {
         ...state,
-        promoCode: action.payload,
+        promoCodeApply: action.payload,
+        promoCodeInput: "",
+        promoCodeValidation:
+          action.payload === state.promoCode.toLowerCase()
+            ? "correct"
+            : "invalid",
+      };
+    }
+    case "copy_promo": {
+      return {
+        ...state,
+        promoCode: "Copied!",
+      };
+    }
+    case "reset_promo": {
+      return {
+        ...state,
+        promoCode: "LoremIpsum",
       };
     }
     default:
@@ -111,7 +134,10 @@ const initialState = {
   userInput: "",
   cartItems: JSON.parse(localStorage.getItem("cartItems")) || [],
   shippingSelection: "",
-  promoCode: "",
+  promoCodeInput: "",
+  promoCodeApply: "",
+  promoCodeValidation: "",
+  promoCode: "LoremIpsum",
 };
 
 const ProductsContext = createContext();
@@ -128,6 +154,9 @@ function ProductsProvider({ children }) {
     userInput,
     cartItems,
     shippingSelection,
+    promoCodeInput,
+    promoCodeApply,
+    promoCodeValidation,
     promoCode,
   } = state;
 
@@ -228,6 +257,9 @@ function ProductsProvider({ children }) {
         isProductFiltered,
         setIsProductFiltered,
         shippingSelection,
+        promoCodeApply,
+        promoCodeInput,
+        promoCodeValidation,
         promoCode,
       }}
     >

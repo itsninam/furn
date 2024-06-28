@@ -507,3 +507,42 @@ p.hide {
   align-items: center;
   background-color: var(--neutral-colour);
 }
+
+.banner .right-container {
+  cursor: pointer;
+}
+
+.banner .right-container span:hover {
+  color: var(--accent-colour);
+}
+
+/* promo code form */
+.promo-form-container {
+  height: 86px;
+  margin-bottom: 8px;
+}
+.promo-form {
+  align-items: flex-end;
+  margin-bottom: 4px;
+  justify-content: space-between;
+}
+
+.promo-form div {
+  width: 100%;
+}
+
+.promo-form label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.promo-form input {
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid var(--dark-grey);
+  width: calc(100% - 32px);
+}
+
+.promo-form-container .invalid-promo {
+  color: var(--red-colour);
+}

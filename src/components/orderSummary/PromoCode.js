@@ -3,46 +3,64 @@ import Button from "../Button";
 import { useProducts } from "../../contexts/ProductsContext";
 
 function PromoCode() {
-  const { promoCode, dispatch, cartItems } = useProducts();
+  const {
+    promoCodeInput,
+    dispatch,
+    cartItems,
+    promoCodeValidation,
+    promoCode,
+  } = useProducts();
 
-  console.log(promoCode);
-
+  console.log(promoCodeInput);
   const handleSubmitPromoCode = (event) => {
     event.preventDefault();
 
-    if (!promoCode) {
-      alert("Please enter promo code");
-    } else if (promoCode.toLowerCase() !== "loremipsum") {
-      alert("incorrect code");
+    if (!promoCodeInput) {
+      dispatch({
+        type: "apply_promo",
+        payload: promoCodeInput.toLowerCase(),
+      });
+    } else if (promoCodeInput.toLowerCase() !== promoCode.toLowerCase()) {
+      dispatch({
+        type: "apply_promo",
+        payload: promoCodeInput.toLowerCase(),
+      });
     } else {
-      alert("correct!");
-      handlePromoInput(event);
+      dispatch({ type: "apply_promo", payload: promoCodeInput.toLowerCase() });
     }
   };
 
-  const handlePromoInput = (event) => {
+  const handlepromoCodeInput = (event) => {
     event.preventDefault();
-    dispatch({ type: "apply_promo", payload: event.target.value });
+    dispatch({ type: "obtain_promo", payload: event.target.value });
   };
 
-  console.log(promoCode);
   return (
-    <form onSubmit={() => handleSubmitPromoCode()}>
-      <div>
-        <label>Promo Code</label>
-        <input
+    <div className="promo-form-container">
+      <form onSubmit={handleSubmitPromoCode} className="promo-form">
+        <div>
+          <label>Promo Code</label>
+          <input
+            disabled={cartItems.length === 0}
+            value={promoCodeInput}
+            onChange={(event) => handlepromoCodeInput(event)}
+          />
+        </div>
+        <Button
+          btnType="primary"
+          buttonLabel="Apply"
+          type="submit"
           disabled={cartItems.length === 0}
-          value={promoCode}
-          onChange={(event) => handlePromoInput(event)}
         />
-      </div>
-      <Button
-        btnType="primary"
-        buttonLabel="Apply"
-        type="submit"
-        disabled={cartItems.length === 0}
-      />
-    </form>
+      </form>
+
+      <p>
+        {promoCodeValidation === "correct" && <span>Promo applied!</span>}
+        {promoCodeValidation === "invalid" && (
+          <span className="invalid-promo">Invalid code</span>
+        )}
+      </p>
+    </div>
   );
 }
 
