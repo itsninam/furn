@@ -1,4 +1,3 @@
-import React from "react";
 import Button from "../Button";
 import { useProducts } from "../../contexts/ProductsContext";
 
@@ -9,9 +8,9 @@ function PromoCode() {
     cartItems,
     promoCodeValidation,
     promoCode,
+    promoCodeMessage,
   } = useProducts();
 
-  console.log(promoCodeInput);
   const handleSubmitPromoCode = (event) => {
     event.preventDefault();
 
@@ -55,10 +54,11 @@ function PromoCode() {
       </form>
 
       <p>
-        {promoCodeValidation === "correct" && <span>Promo applied!</span>}
-        {promoCodeValidation === "invalid" && (
-          <span className="invalid-promo">Invalid code</span>
-        )}
+        <span
+          className={promoCodeValidation === "invalid" ? "invalid-promo" : ""}
+        >
+          {promoCodeMessage}
+        </span>
       </p>
     </div>
   );

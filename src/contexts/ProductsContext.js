@@ -84,6 +84,7 @@ function reducer(state, action) {
         cartItems: updatedCartItems,
         shippingSelection:
           updatedCartItems.length === 0 ? 0 : state.shippingSelection,
+        promoCodeValidation: state.cartItems.length === 0 && null,
       };
     }
     case "shipping_selection": {
@@ -112,13 +113,14 @@ function reducer(state, action) {
     case "copy_promo": {
       return {
         ...state,
-        promoCode: "Copied!",
+        isPromoCodeCopied: true,
       };
     }
     case "reset_promo": {
       return {
         ...state,
-        promoCode: "LoremIpsum",
+        isPromoCodeCopied: false,
+        promoCodeValidation: null,
       };
     }
     default:
@@ -138,6 +140,7 @@ const initialState = {
   promoCodeApply: "",
   promoCodeValidation: "",
   promoCode: "LoremIpsum",
+  isPromoCodeCopied: false,
 };
 
 const ProductsContext = createContext();
@@ -158,7 +161,9 @@ function ProductsProvider({ children }) {
     promoCodeApply,
     promoCodeValidation,
     promoCode,
+    isPromoCodeCopied,
   } = state;
+  const [promoCodeMessage, setPromoCodeMessage] = useState("");
 
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -175,6 +180,22 @@ function ProductsProvider({ children }) {
 
     return currentProduct;
   };
+
+  useEffect(() => {
+    if (promoCodeValidation === "correct") {
+      console.log("correct");
+      setPromoCodeMessage("Promo applied!");
+    } else if (promoCodeValidation === "invalid") {
+      setPromoCodeMessage("Invalid code");
+    } else if (cartItems.length === 0) {
+      setPromoCodeMessage("");
+    }
+
+    if (pathname !== "/cart") {
+      setPromoCodeMessage("");
+      dispatch({ type: "reset_promo" });
+    }
+  }, [promoCodeValidation, cartItems.length, pathname]);
 
   const getSelectedProductColor = (colour) => {
     if (colour === "white") {
@@ -261,6 +282,8 @@ function ProductsProvider({ children }) {
         promoCodeInput,
         promoCodeValidation,
         promoCode,
+        isPromoCodeCopied,
+        promoCodeMessage,
       }}
     >
       {children}

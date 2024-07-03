@@ -2,7 +2,7 @@ import React from "react";
 import { useProducts } from "../contexts/ProductsContext";
 
 function Banner() {
-  const { promoCode, dispatch } = useProducts();
+  const { promoCode, dispatch, isPromoCodeCopied } = useProducts();
 
   const handleCopyPromoCode = () => {
     navigator.clipboard.writeText(promoCode);
@@ -20,7 +20,10 @@ function Banner() {
       <p>Get 20% off</p>
       <div className="right-container">
         <p>
-          Redeem code: <span onClick={handleCopyPromoCode}>{promoCode}</span>
+          Redeem code:{" "}
+          <span onClick={handleCopyPromoCode}>
+            {isPromoCodeCopied ? "Copied!" : promoCode}
+          </span>
         </p>
       </div>
     </div>
