@@ -183,7 +183,6 @@ function ProductsProvider({ children }) {
 
   useEffect(() => {
     if (promoCodeValidation === "correct") {
-      console.log("correct");
       setPromoCodeMessage("Promo applied!");
     } else if (promoCodeValidation === "invalid") {
       setPromoCodeMessage("Invalid code");

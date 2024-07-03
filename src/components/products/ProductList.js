@@ -21,20 +21,37 @@ function ProductList() {
     (product) => product.category === params.productCategory
   );
 
-  const filterItems = (color) => {
-    const filtered = currentProducts
-      .map((product) => {
-        const filteredOptions = product.options.filter(
-          (option) => option.color === color
-        );
-        if (filteredOptions.length > 0) {
-          return { ...product, options: filteredOptions };
-        }
-        return null;
-      })
-      .filter((product) => product !== null);
-    setFilteredProducts(filtered);
-    setIsProductFiltered(true);
+  const filterItems = (item) => {
+    if (item === "Limited items") {
+      const filtered = currentProducts.filter(
+        (product) => product.saleItem === true
+      );
+      setFilteredProducts(filtered);
+    } else if (item === "Under 1,500") {
+      const filteredRegularPrice = currentProducts.filter(
+        (product) => !product.saleItem && product.price <= 1500
+      );
+
+      const filteredSalePrice = currentProducts.filter(
+        (product) => product.salePrice !== null && product.salePrice <= 1500
+      );
+
+      setFilteredProducts([...filteredRegularPrice, ...filteredSalePrice]);
+    } else {
+      const filtered = currentProducts
+        .map((product) => {
+          const filteredOptions = product.options.filter(
+            (option) => option.color === item
+          );
+          if (filteredOptions.length > 0) {
+            return { ...product, options: filteredOptions };
+          }
+          return null;
+        })
+        .filter((product) => product !== null);
+      setFilteredProducts(filtered);
+      setIsProductFiltered(true);
+    }
   };
 
   const colors = [

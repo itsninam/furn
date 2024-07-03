@@ -9,7 +9,7 @@ function FilterMenu({ colors, filterItems, handleRemoveFilters }) {
     },
     {
       category: "saleItem",
-      categoryItems: ["true"],
+      categoryItems: ["Limited items", "Under 1,500"],
     },
   ];
 

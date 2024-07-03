@@ -24,7 +24,7 @@ function FilterMenuItems({ item, filterItems }) {
               filterItems(category);
             }}
           >
-            {category === "true" ? "Limited items" : category}
+            {category}
           </p>
         );
       })}
