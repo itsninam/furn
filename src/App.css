@@ -24,12 +24,17 @@ ul {
   list-style: none;
 }
 
-ul.product-list,
 ul.shop-products {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
   row-gap: 48px;
+}
+
+ul.product-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
 
 .shop-products {
@@ -136,12 +141,10 @@ button.primary {
 }
 
 img {
-  height: 100%;
+  height: auto;
   width: 100%;
-  margin: 0 auto;
-  object-fit: cover;
+  max-width: 26vw;
   width: 350px;
-  height: 525px;
 }
 
 .colors-container {
