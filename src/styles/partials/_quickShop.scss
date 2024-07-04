@@ -1,0 +1,59 @@
+.quick-shop-overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: transparent;
+  width: 100%;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
+
+  .quick-shop-modal {
+    background-color: white;
+    padding: 64px 46px;
+    width: 60vw;
+    height: 90vh;
+    position: relative;
+
+    .close-btn {
+      position: absolute;
+      right: 24px;
+      top: 24px;
+      background-color: transparent;
+      border: none;
+
+      .close-icon {
+        font-size: 3.5rem;
+        color: var(--dark-grey);
+
+        &:hover {
+          color: var(--accent-colour);
+        }
+      }
+    }
+
+    .flex-container {
+      height: calc(90vh - 128px);
+      gap: 8px;
+    }
+
+    img {
+      height: 100%;
+      width: auto;
+    }
+
+    .icon-left,
+    .icon-right {
+      height: 32px;
+      width: 32px;
+      color: var(--dark-grey);
+
+      &:hover {
+        color: var(--accent-colour);
+      }
+    }
+  }
+}

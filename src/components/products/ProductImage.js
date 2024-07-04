@@ -21,13 +21,13 @@ const ProductImage = ({ product, selectedImage }) => {
             "mouseOver"
           )
         }
-        onMouseOut={(event) =>
-          onHandleImageHover(
-            event,
-            selectedImage.images.primaryImage,
-            "mouseOut"
-          )
-        }
+        // onMouseOut={(event) =>
+        //   onHandleImageHover(
+        //     event,
+        //     selectedImage.images.primaryImage,
+        //     "mouseOut"
+        //   )
+        // }
       >
         <img
           src={require(`../../assets/images/${selectedImage.images.primaryImage}`)}

@@ -16,24 +16,26 @@ function Home() {
   };
 
   return (
-    <ul className="shop-products">
-      {productCategories.map((category) => {
-        return (
-          <li key={category}>
-            <Link className="product-link" to={category}>
-              shop {category}
-            </Link>
+    <section>
+      <ul className="shop-products">
+        {productCategories.map((category) => {
+          return (
+            <li key={category}>
+              <Link className="product-link" to={category}>
+                shop {category}
+              </Link>
 
-            <img
-              src={require(`../assets/images/${
-                getImages(category)[0].options[0].images.primaryImage
-              }`)}
-              alt={category}
-            />
-          </li>
-        );
-      })}
-    </ul>
+              <img
+                src={require(`../assets/images/${
+                  getImages(category)[0].options[0].images.primaryImage
+                }`)}
+                alt={category}
+              />
+            </li>
+          );
+        })}
+      </ul>
+    </section>
   );
 }
 

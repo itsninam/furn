@@ -1,3 +1,10 @@
+@import "./styles/partials/setup";
+@import "./styles/partials/typography";
+@import "./styles/partials/baseStyles";
+@import "./styles/partials/shopProducts";
+@import "./styles/partials/quickShop";
+@import "./styles/partials/productList";
+
 /* Base styles */
 :root {
   --light-grey: #edede9;
@@ -6,72 +13,6 @@
   --red-colour: #ba181b;
   --accent-colour: #167a92;
   --neutral-colour: #e2ddd6;
-}
-html {
-  font-size: 62.5%;
-}
-
-body {
-  font-size: 1.6rem;
-  font-family: "Nunito Sans", sans-serif;
-  background-color: var(--background-colour);
-}
-
-li,
-ul {
-  padding: 0px;
-  margin: 0px;
-  list-style: none;
-}
-
-ul.shop-products {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  row-gap: 48px;
-}
-
-ul.product-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.shop-products {
-  justify-content: center;
-}
-
-.product-list {
-  flex: 1;
-}
-
-a {
-  text-decoration: none;
-}
-
-h2 {
-  margin: 8px 0px;
-  font-size: 1.6rem;
-  font-weight: 300;
-}
-
-p {
-  font-size: 1.4rem;
-}
-
-p,
-h1 {
-  margin: 0px;
-}
-
-h1 a {
-  color: var(--dark-grey);
-}
-
-.wrapper {
-  max-width: 1920px;
-  width: 90%;
-  margin: 0 auto;
 }
 
 .loading-spinner-container {
@@ -84,67 +25,6 @@ h1 a {
 .products-page {
   display: flex;
   gap: 48px;
-}
-
-button {
-  cursor: pointer;
-  display: block;
-  background-color: transparent;
-  border: none;
-  padding: 0px;
-}
-
-button.primary {
-  border: 1px solid transparent;
-  background-color: var(--accent-colour);
-  color: white;
-  text-transform: uppercase;
-  padding: 8px 16px;
-  border: 1px solid transparent;
-}
-
-.primary:hover {
-  background-color: #fff;
-  color: var(--accent-colour);
-  border: 1px solid var(--accent-colour);
-}
-
-.btn-quickview {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  width: 100%;
-  height: 48px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--neutral-colour);
-  border: none;
-}
-
-.btn-quickview:hover {
-  color: var(--accent-colour);
-}
-
-.btn-color {
-  height: 16px;
-  width: 16px;
-  border-radius: 50%;
-  margin-right: 16px;
-  border: 1px solid var(--neutral-colour);
-}
-
-.btn-color.active {
-  outline: 1px solid #212529;
-  border: 1px solid #ced4da;
-  outline-offset: 2px;
-}
-
-img {
-  height: auto;
-  width: 100%;
-  max-width: 26vw;
-  width: 350px;
 }
 
 .colors-container {
@@ -169,84 +49,6 @@ img {
 .sale-item {
   text-decoration: line-through;
   color: black;
-}
-
-.quick-shop-overlay {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  background: transparent;
-  width: 100%;
-  height: 100vh;
-  z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.flex-container,
-.quick-shop-overlay .image-container {
-  display: flex;
-  gap: 24px;
-}
-
-.quick-shop-modal {
-  background-color: white;
-  padding: 64px;
-  width: 824px;
-  height: 450px;
-  position: relative;
-}
-
-.quick-shop-modal .close-btn {
-  position: absolute;
-  right: 24px;
-  top: 24px;
-  background-color: transparent;
-  border: none;
-}
-
-.close-btn .close-icon {
-  font-size: 3.5rem;
-  color: var(--dark-grey);
-}
-
-.close-icon:hover {
-  color: var(--accent-colour);
-}
-
-select {
-  border: 1px solid var(--dark-grey);
-  border-radius: 4px;
-  padding: 0px 8px;
-}
-
-select option:first-of-type {
-  margin-right: 8px;
-}
-
-.quick-shop-modal img {
-  height: auto;
-  width: 300px;
-}
-
-.image-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.icon-left,
-.icon-right {
-  height: 32px;
-  width: 32px;
-  color: var(--dark-grey);
-}
-
-.icon-left:hover,
-.icon-right:hover {
-  color: var(--accent-colour);
 }
 
 .loading-container {
@@ -317,32 +119,8 @@ nav .wrapper {
   font-weight: 600;
 }
 
-.shop-products,
-section {
-  padding: 64px 0px;
-}
-
-.shop-products img {
-  height: 500px;
-  width: 500px;
-}
-
-.shop-products li {
-  position: relative;
-}
-
 .product-link:hover {
   color: var(--accent-colour);
-}
-
-.shop-products a {
-  position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 12px 16px;
-  color: black;
 }
 
 /* table styles */

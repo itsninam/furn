@@ -45,7 +45,9 @@ function ProductColor({
           return (
             <button
               key={index}
-              className={`btn-color ${index === productIndex ? "active" : ""}`}
+              className={`btn-color-selection ${
+                index === productIndex ? "active" : ""
+              }`}
               onClick={() => handleSelectColor(option.color, product.id, index)}
               style={{ backgroundColor: getSelectedProductColor(option.color) }}
             ></button>

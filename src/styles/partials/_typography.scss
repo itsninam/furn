@@ -1,0 +1,23 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Nunito Sans", sans-serif;
+  background-color: var(--background-colour);
+}
+
+h1 a {
+  color: var(--dark-grey);
+}
+
+h2 {
+  margin: 8px 0px;
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+p {
+  font-size: 1.4rem;
+}
