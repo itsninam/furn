@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useProducts } from "../contexts/ProductsContext";
 
 function Banner() {
   const { promoCode, dispatch, isPromoCodeCopied } = useProducts();
+  const [flashSale, setFlashSale] = useState(false);
 
   const handleCopyPromoCode = () => {
     navigator.clipboard.writeText(promoCode);
@@ -12,12 +13,26 @@ function Banner() {
       dispatch({ type: "reset_promo" });
     }, 1000);
   };
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setFlashSale(!flashSale);
+    }, 1500);
+
+    return () => clearInterval(intervalId);
+  }, [flashSale]);
+
   return (
     <div className="banner">
       <div className="left-content">
-        <p>Flash Sale</p>
+        <p className="flash-sale">
+          {!flashSale ? (
+            "Summer Flash Sale!"
+          ) : (
+            <span className="discount">Get 20% off</span>
+          )}
+        </p>
       </div>
-      <p>Get 20% off</p>
       <div className="right-container">
         <p>
           Redeem code:{" "}

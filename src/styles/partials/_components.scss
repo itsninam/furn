@@ -13,6 +13,19 @@
     span:hover {
       color: var(--accent-colour);
     }
+
+    p {
+      width: 180px;
+    }
+  }
+
+  .flash-sale {
+    width: 130px;
+    text-align: center;
+
+    .discount {
+      color: var(--accent-colour);
+    }
   }
 }
 
