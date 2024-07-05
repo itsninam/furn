@@ -26,7 +26,10 @@ function FilterMenu({ colors, filterItems, handleRemoveFilters }) {
           );
         })}
       </ul>
-      <button onClick={() => handleRemoveFilters()} className="clear-btn">
+      <button
+        onClick={() => handleRemoveFilters()}
+        className="reset-filters-btn"
+      >
         Reset filters
       </button>
     </>

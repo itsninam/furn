@@ -56,4 +56,18 @@
       }
     }
   }
+
+  .product-description {
+    padding: 16px 0px 40px 0px;
+  }
+
+  form,
+  .product-quantity-form {
+    display: flex;
+    gap: 16px;
+
+    button {
+      width: 100%;
+    }
+  }
 }

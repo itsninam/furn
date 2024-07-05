@@ -4,4 +4,28 @@
     display: flex;
     align-items: center;
   }
+
+  .price-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+
+    .original-price,
+    .sale-tag {
+      color: var(--red-colour);
+    }
+
+    .sale-item {
+      text-decoration: line-through;
+      color: black;
+    }
+  }
+
+  .colors-container {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    font-size: 1.2rem;
+  }
 }

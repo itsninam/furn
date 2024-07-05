@@ -106,3 +106,21 @@ ul.product-list {
   display: flex;
   gap: 24px;
 }
+
+.products-page {
+  display: flex;
+  gap: 48px;
+}
+
+.loading-spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 121px);
+
+  .loading-container {
+    height: 675px;
+    width: 450px;
+    border: 1px solid black;
+  }
+}

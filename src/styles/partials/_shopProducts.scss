@@ -23,4 +23,8 @@ ul.shop-products {
     height: 500px;
     width: 500px;
   }
+
+  .product-link:hover {
+    color: var(--accent-colour);
+  }
 }

@@ -45,7 +45,7 @@ function Cart() {
                   <td>{item.quantity}</td>
                   <td>${(item.quantity * item.price).toLocaleString()}</td>
                   <td onClick={() => handleRemoveItem(item)}>
-                    <FaRegTrashAlt className="remove-icon" />
+                    <FaRegTrashAlt className="remove-cart-item-icon" />
                   </td>
                 </tr>
               );
