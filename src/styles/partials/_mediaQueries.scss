@@ -1,0 +1,10 @@
+@media only screen and (max-width: 945px) {
+  .products-page {
+    flex-direction: column;
+
+    .filter-container {
+      position: static;
+      z-index: 100;
+    }
+  }
+}

@@ -4,18 +4,35 @@ import { useParams } from "react-router-dom";
 import Loading from "../Loading";
 import Product from "./Product";
 import { useEffect, useState } from "react";
-import FilterMenu from "../filterMenu/FilterMenu";
+import Filter from "../filterMenu/Fiter";
 
 function ProductList() {
   const { isLoading, products, setIsProductFiltered } = useProducts();
   const params = useParams();
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [isMobileView, setMobileView] = useState(null);
+
+  const windowSize = window.matchMedia("(max-width: 945px)");
 
   useEffect(() => {
     setFilteredProducts(
       products.filter((product) => product.category === params.productCategory)
     );
-  }, [products, params.productCategory]);
+
+    if (windowSize.matches) {
+      setMobileView(true);
+    } else {
+      setMobileView(false);
+    }
+  }, [products, params.productCategory, windowSize.matches]);
+
+  windowSize.addEventListener("change", (event) => {
+    if (event.matches) {
+      setMobileView(true);
+    } else {
+      setMobileView(false);
+    }
+  });
 
   const currentProducts = products.filter(
     (product) => product.category === params.productCategory
@@ -73,7 +90,8 @@ function ProductList() {
   return (
     <section className="products-page">
       <div className="filter-container">
-        <FilterMenu
+        <Filter
+          isMobileView={isMobileView}
           colors={colors}
           filterItems={filterItems}
           handleRemoveFilters={handleRemoveFilters}

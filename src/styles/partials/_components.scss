@@ -113,8 +113,30 @@ nav {
 }
 
 // filter menu
+
+.mobile-view {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0px;
+  background-color: white;
+  padding: 0px 24px;
+
+  ul {
+    overflow: scroll;
+    height: calc(100vh - 43px);
+  }
+
+  .filter-btn-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
 .filter-container {
-  width: 150px;
+  min-width: 150px;
   position: sticky;
   top: 150px;
   align-self: flex-start;
