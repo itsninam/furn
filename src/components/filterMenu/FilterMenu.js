@@ -1,12 +1,14 @@
 import FilterMenuItems from "./FilterMenuItems";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 function FilterMenu({
   colors,
   filterItems,
   handleRemoveFilters,
   setDisplayFilterMenu,
+  displayFilterMenu,
   isMobileView,
+  windowSize,
 }) {
   const filterMenuItems = [
     {
@@ -19,20 +21,14 @@ function FilterMenu({
     },
   ];
 
-  const filterMenu = useRef(null);
-  const windowSize = window.matchMedia("(max-width: 945px)");
-
   useEffect(() => {
-    document.body.style.overflow = windowSize.matches ? "hidden" : null;
-  }, [windowSize.matches]);
-
-  window.addEventListener("resize", () => {
-    document.body.style.overflow =
-      filterMenu.current?.className === "mobile-view" ? "hidden" : null;
-  });
+    if (displayFilterMenu) {
+      document.body.style.overflow = windowSize.matches ? "hidden" : null;
+    }
+  }, [displayFilterMenu, windowSize.matches]);
 
   return (
-    <div className={isMobileView ? "mobile-view" : null} ref={filterMenu}>
+    <div className={isMobileView ? "mobile-view" : null}>
       {!isMobileView && <p className="filter-tag">Filter by: </p>}
       <ul>
         {filterMenuItems.map((item, index) => {

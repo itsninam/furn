@@ -12,15 +12,6 @@ function Filter({
 
   return (
     <>
-      {displayFilterMenu && (
-        <FilterMenu
-          filterItems={filterItems}
-          colors={colors}
-          setDisplayFilterMenu={setDisplayFilterMenu}
-          handleRemoveFilters={handleRemoveFilters}
-          windowSize={windowSize}
-        />
-      )}
       {isMobileView ? (
         <>
           <button onClick={() => setDisplayFilterMenu(true)}>Filter</button>
@@ -30,6 +21,7 @@ function Filter({
               filterItems={filterItems}
               colors={colors}
               setDisplayFilterMenu={setDisplayFilterMenu}
+              displayFilterMenu={displayFilterMenu}
               handleRemoveFilters={handleRemoveFilters}
               windowSize={windowSize}
             />
@@ -41,7 +33,10 @@ function Filter({
             isMobileView={isMobileView}
             filterItems={filterItems}
             colors={colors}
+            setDisplayFilterMenu={setDisplayFilterMenu}
+            displayFilterMenu={displayFilterMenu}
             handleRemoveFilters={handleRemoveFilters}
+            windowSize={windowSize}
           />
         </>
       )}

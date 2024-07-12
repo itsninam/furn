@@ -11,8 +11,10 @@ function ProductList() {
   const params = useParams();
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [isMobileView, setMobileView] = useState(null);
-
-  const windowSize = window.matchMedia("(max-width: 945px)");
+  // eslint-disable-next-line
+  const [windowSize, setWindowSize] = useState(
+    window.matchMedia("(max-width: 945px)")
+  );
 
   useEffect(() => {
     setFilteredProducts(
@@ -95,6 +97,7 @@ function ProductList() {
           colors={colors}
           filterItems={filterItems}
           handleRemoveFilters={handleRemoveFilters}
+          windowSize={windowSize}
         />
       </div>
       <ul className="product-list">
