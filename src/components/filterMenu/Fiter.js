@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FilterMenu from "./FilterMenu";
+import Button from "../Button";
 
 function Filter({
   colors,
@@ -14,7 +15,11 @@ function Filter({
     <>
       {isMobileView ? (
         <>
-          <button onClick={() => setDisplayFilterMenu(true)}>Filter</button>
+          <Button
+            btnType="secondary"
+            buttonLabel="Filter"
+            onClick={() => setDisplayFilterMenu(true)}
+          />
           {displayFilterMenu && (
             <FilterMenu
               isMobileView={isMobileView}

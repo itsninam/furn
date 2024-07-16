@@ -1,3 +1,4 @@
+import Button from "../Button";
 import FilterMenuItems from "./FilterMenuItems";
 import { useEffect } from "react";
 
@@ -41,13 +42,17 @@ function FilterMenu({
       </ul>
       {isMobileView ? (
         <div className="filter-btn-container">
-          <button
+          <Button
+            btnType="secondary"
+            buttonLabel="Clear"
             onClick={() => handleRemoveFilters()}
-            className="reset-filters-btn"
-          >
-            Reset filters
-          </button>
-          <button onClick={() => setDisplayFilterMenu(false)}>Close</button>
+          />
+
+          <Button
+            btnType="primary"
+            buttonLabel="Done"
+            onClick={() => setDisplayFilterMenu(false)}
+          />
         </div>
       ) : (
         <button

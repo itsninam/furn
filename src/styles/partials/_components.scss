@@ -113,7 +113,6 @@ nav {
 }
 
 // filter menu
-
 .mobile-view {
   position: fixed;
   height: 100vh;
@@ -121,17 +120,21 @@ nav {
   top: 0;
   left: 0px;
   background-color: white;
-  padding: 0px 24px;
+  padding: 24px;
 
   ul {
     overflow: scroll;
-    height: calc(100vh - 43px);
+    height: calc(100vh - 85px);
   }
 
   .filter-btn-container {
     display: flex;
-    justify-content: space-between;
+    gap: 16px;
     align-items: center;
+
+    button {
+      width: 100%;
+    }
   }
 }
 
@@ -141,17 +144,21 @@ nav {
   top: 150px;
   align-self: flex-start;
 
+  button {
+    width: 100%;
+  }
+
   .filter-tag {
     padding-bottom: 16px;
     border-bottom: 1px solid var(--light-grey);
   }
 
   .filter-list {
-    padding: 16px 0px;
     border-bottom: 1px solid var(--light-grey);
     cursor: pointer;
 
     .filter-category {
+      padding: 16px 0px;
       display: flex;
       align-items: center;
       justify-content: space-between;

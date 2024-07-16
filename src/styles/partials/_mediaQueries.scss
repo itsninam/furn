@@ -4,7 +4,17 @@
 
     .filter-container {
       position: static;
+      width: 100%;
+    }
+
+    .mobile-view {
       z-index: 100;
     }
+  }
+}
+
+@media only screen and (max-width: 745px) {
+  ul.product-list {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
