@@ -12,7 +12,7 @@ function FilterMenuItems({ item, filterItems }) {
         onClick={() => setIsOpen(!isOpen)}
         className={`filter-category ${isOpen ? "open" : ""}`}
       >
-        {item.category === "colors" ? "Colors" : "Sale"}
+        {item.category === "colors" ? "Colors" : "Price"}
         {isOpen ? <IoIosArrowDown /> : <FaPlus />}
       </p>
       {item.categoryItems.map((category, index) => {

@@ -18,7 +18,12 @@ function FilterMenu({
     },
     {
       category: "saleItem",
-      categoryItems: ["Limited items", "Under 1,500"],
+      categoryItems: [
+        "High to low",
+        "Low to high",
+        "Limited items",
+        "Under 1,500",
+      ],
     },
   ];
 

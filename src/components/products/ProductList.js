@@ -56,6 +56,22 @@ function ProductList() {
       );
 
       setFilteredProducts([...filteredRegularPrice, ...filteredSalePrice]);
+    } else if (item === "High to low") {
+      const filtered = currentProducts.sort((a, b) => {
+        const priceA = a.saleItem ? a.salePrice : a.price;
+        const priceB = b.saleItem ? b.salePrice : b.price;
+        return priceB - priceA;
+      });
+
+      setFilteredProducts(filtered);
+    } else if (item === "Low to high") {
+      const filtered = currentProducts.sort((a, b) => {
+        const priceA = a.saleItem ? a.salePrice : a.price;
+        const priceB = b.saleItem ? b.salePrice : b.price;
+        return priceA - priceB;
+      });
+
+      setFilteredProducts(filtered);
     } else {
       const filtered = currentProducts
         .map((product) => {
