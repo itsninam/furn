@@ -11,10 +11,35 @@
       z-index: 100;
     }
   }
+
+  .quick-shop-overlay {
+    .quick-shop-modal {
+      width: 100%;
+      max-height: 100vh;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 }
 
 @media only screen and (max-width: 745px) {
   ul.product-list {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .quick-shop-overlay {
+    .quick-shop-modal {
+      display: block;
+
+      .flex-container {
+        flex-direction: column;
+      }
+
+      .image-container {
+        margin-top: 16px;
+      }
+    }
   }
 }

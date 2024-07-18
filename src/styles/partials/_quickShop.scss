@@ -13,9 +13,10 @@
 
   .quick-shop-modal {
     background-color: white;
+    overflow: scroll;
     padding: 64px 46px;
-    width: 60vw;
-    height: 90vh;
+    width: 800px;
+    max-height: 90vh;
     position: relative;
 
     .close-btn {
@@ -36,13 +37,34 @@
     }
 
     .flex-container {
-      height: calc(90vh - 128px);
-      gap: 8px;
+      // padding: 64px 46px;
+
+      // height: calc(90vh - 128px);
+      gap: 50px;
+    }
+
+    .image-container {
+      display: block;
+      position: relative;
+
+      button {
+        position: absolute;
+        top: 50%;
+        background-color: white;
+
+        &:first-of-type {
+          left: -10%;
+        }
+
+        &:not(:first-of-type) {
+          right: -10%;
+        }
+      }
     }
 
     img {
       height: 100%;
-      width: auto;
+      width: 100%;
     }
 
     .icon-left,

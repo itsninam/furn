@@ -22,7 +22,7 @@ function QuickShopImage({
       : setImageIndex(images.length - 1);
   };
   return (
-    <div className="image-container flex-container">
+    <div className="image-container">
       <button onClick={handleImgBack}>
         <BsChevronLeft className="icon-left" />
       </button>
