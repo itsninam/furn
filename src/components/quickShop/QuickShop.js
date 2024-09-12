@@ -17,7 +17,7 @@ function QuickShop() {
   const productId = new URLSearchParams(search).get("item");
   const color = new URLSearchParams(search).get("color");
   const chosenProduct = products.find(
-    (product) => product.id === Number(productId)
+    (product) => Number(product.id) === Number(productId)
   );
 
   const [imageIndex, setImageIndex] = useState(0);
