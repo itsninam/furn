@@ -6,6 +6,7 @@ import {
   useState,
 } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import furnitureData from "../data/furniture";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -225,22 +226,12 @@ function ProductsProvider({ children }) {
   };
 
   useEffect(() => {
-    fetchData();
+    dispatch({ type: "fetch_data", payload: furnitureData });
   }, []);
 
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
-
-  const fetchData = async () => {
-    try {
-      const res = await fetch(`${BASE_URL}/furniture`);
-      const data = await res.json();
-      dispatch({ type: "fetch_data", payload: data });
-    } catch {
-      alert("There was an error loading your data...");
-    }
-  };
 
   const onHandleImageHover = (event, imagePath, type) => {
     if (type === "mouseOver") {
