@@ -16,7 +16,7 @@ function QuickShop() {
 
   const productId = new URLSearchParams(search).get("item");
   const color = new URLSearchParams(search).get("color");
-  const chosenProduct = products.find(
+  const chosenProduct = products?.find(
     (product) => Number(product.id) === Number(productId)
   );
 

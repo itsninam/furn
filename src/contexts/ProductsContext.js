@@ -6,7 +6,7 @@ import {
   useState,
 } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import furnitureData from "../data/furniture";
+import furnitureData from "../data/furnitureData";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -145,7 +145,6 @@ const initialState = {
 };
 
 const ProductsContext = createContext();
-const BASE_URL = "http://localhost:9000";
 
 function ProductsProvider({ children }) {
   const [isProductFiltered, setIsProductFiltered] = useState(false);
@@ -168,6 +167,10 @@ function ProductsProvider({ children }) {
 
   const navigate = useNavigate();
   const { pathname } = useLocation();
+
+  useEffect(() => {
+    dispatch({ type: "fetch_data", payload: furnitureData });
+  }, []);
 
   document.body.style.overflow = pathname.includes("/quickshop")
     ? "hidden"
@@ -224,10 +227,6 @@ function ProductsProvider({ children }) {
       return "#656d4a";
     }
   };
-
-  useEffect(() => {
-    dispatch({ type: "fetch_data", payload: furnitureData });
-  }, []);
 
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
