@@ -15,7 +15,6 @@ h1 {
 }
 
 .wrapper {
-  // max-width: 1920px;
   max-width: 1420px;
   width: 90%;
   margin: 0 auto;
@@ -89,14 +88,13 @@ button {
 img {
   height: auto;
   width: 100%;
-  // max-width: 26vw;
-  // width: 350px;
 }
 
 select {
   border: 1px solid var(--dark-grey);
   border-radius: 4px;
   padding: 0px 8px;
+  color: var(--font-colour);
 
   option:first-of-type {
     margin-right: 8px;
