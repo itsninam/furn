@@ -113,7 +113,6 @@ function ProductList() {
           colors={colors}
           filterItems={filterItems}
           handleRemoveFilters={handleRemoveFilters}
-          windowSize={windowSize}
         />
       </div>
       <ul className="product-list">

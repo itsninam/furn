@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import FilterMenu from "./FilterMenu";
 import Button from "../Button";
 
-function Filter({
-  colors,
-  filterItems,
-  handleRemoveFilters,
-  isMobileView,
-  windowSize,
-}) {
+function Filter({ colors, filterItems, handleRemoveFilters, isMobileView }) {
   const [displayFilterMenu, setDisplayFilterMenu] = useState(false);
+
+  const openFilterMenu = () => {
+    setDisplayFilterMenu(true);
+    document.body.style.overflow = "hidden";
+  };
 
   return (
     <>
@@ -18,7 +17,7 @@ function Filter({
           <Button
             btnType="secondary"
             buttonLabel="Filter"
-            onClick={() => setDisplayFilterMenu(true)}
+            onClick={() => openFilterMenu()}
           />
           {displayFilterMenu && (
             <FilterMenu
@@ -28,7 +27,6 @@ function Filter({
               setDisplayFilterMenu={setDisplayFilterMenu}
               displayFilterMenu={displayFilterMenu}
               handleRemoveFilters={handleRemoveFilters}
-              windowSize={windowSize}
             />
           )}
         </>
@@ -41,7 +39,6 @@ function Filter({
             setDisplayFilterMenu={setDisplayFilterMenu}
             displayFilterMenu={displayFilterMenu}
             handleRemoveFilters={handleRemoveFilters}
-            windowSize={windowSize}
           />
         </>
       )}

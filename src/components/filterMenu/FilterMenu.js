@@ -1,6 +1,5 @@
 import Button from "../Button";
 import FilterMenuItems from "./FilterMenuItems";
-import { useEffect } from "react";
 
 function FilterMenu({
   colors,
@@ -9,7 +8,6 @@ function FilterMenu({
   setDisplayFilterMenu,
   displayFilterMenu,
   isMobileView,
-  windowSize,
 }) {
   const filterMenuItems = [
     {
@@ -27,11 +25,10 @@ function FilterMenu({
     },
   ];
 
-  useEffect(() => {
-    if (displayFilterMenu) {
-      document.body.style.overflow = windowSize.matches ? "hidden" : null;
-    }
-  }, [displayFilterMenu, windowSize.matches]);
+  const closeFilterMenu = () => {
+    setDisplayFilterMenu(!displayFilterMenu);
+    document.body.style.overflow = "scroll";
+  };
 
   return (
     <div className={isMobileView ? "mobile-view" : null}>
@@ -56,7 +53,7 @@ function FilterMenu({
           <Button
             btnType="primary"
             buttonLabel="Done"
-            onClick={() => setDisplayFilterMenu(false)}
+            onClick={() => closeFilterMenu()}
           />
         </div>
       ) : (

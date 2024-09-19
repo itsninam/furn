@@ -7,6 +7,8 @@ ul.shop-products {
 
   li {
     position: relative;
+    height: 500px;
+    width: 500px;
   }
 
   a {
@@ -20,8 +22,9 @@ ul.shop-products {
   }
 
   img {
-    height: 500px;
-    width: 500px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 
   .product-link:hover {
