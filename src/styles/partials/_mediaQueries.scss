@@ -1,3 +1,36 @@
+@media only screen and (max-width: 1277px) {
+  .cart {
+    .flex-container {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .order-summary {
+      align-self: flex-end;
+      width: 100%;
+
+      h3 {
+        width: 350px;
+        margin-left: auto;
+      }
+
+      .order-summary-list {
+        margin-left: auto;
+      }
+
+      .order-summary-container {
+        border: transparent;
+        margin-left: auto;
+        padding: 0px;
+      }
+
+      button.primary {
+        width: 100%;
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 945px) {
   .products-page {
     flex-direction: column;

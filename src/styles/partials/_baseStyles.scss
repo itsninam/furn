@@ -63,6 +63,7 @@ button {
     align-items: center;
     background-color: var(--neutral-colour);
     border: none;
+    color: var(--font-colour);
 
     &:hover {
       color: var(--accent-colour);

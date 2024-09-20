@@ -28,49 +28,51 @@ function OrderSummary() {
     : totalPrice;
 
   return (
-    <div className="order-summary-container">
+    <div className="order-summary">
       <SubHeader label="Order Summary" />
-      <ul className="order-summary-list">
-        <li>
-          <span>Subtotal</span>
-          <span>
-            $
-            {`${totalPrice.toLocaleString(undefined, {
-              minimumFractionDigits: 2,
-            })}`}
-          </span>
-        </li>
-        <li>
-          <span>Shipping</span>
-          <CountrySelector />
-        </li>
-        <li>
-          <span>Estimated tax</span>
-          <span>
-            {shippingSelection
-              ? `$${estimatedTax.toLocaleString(undefined, {
-                  minimumFractionDigits: 2,
-                })}`
-              : `$0.00`}
-          </span>
-        </li>
-        <li>
-          <span>Total</span>
-          <span>
-            $
-            {promoCodeApply === promoCode.toLowerCase()
-              ? (priceTotal - (priceTotal * 20) / 100).toLocaleString(
-                  undefined,
-                  { minimumFractionDigits: 2 }
-                )
-              : priceTotal.toLocaleString(undefined, {
-                  minimumFractionDigits: 2,
-                })}
-          </span>
-        </li>
-        <PromoCode />
+      <div className="order-summary-container">
+        <ul className="order-summary-list">
+          <li>
+            <span>Subtotal</span>
+            <span>
+              $
+              {`${totalPrice.toLocaleString(undefined, {
+                minimumFractionDigits: 2,
+              })}`}
+            </span>
+          </li>
+          <li>
+            <span>Shipping</span>
+            <CountrySelector />
+          </li>
+          <li>
+            <span>Estimated tax</span>
+            <span>
+              {shippingSelection
+                ? `$${estimatedTax.toLocaleString(undefined, {
+                    minimumFractionDigits: 2,
+                  })}`
+                : `$0.00`}
+            </span>
+          </li>
+          <li>
+            <span>Total</span>
+            <span>
+              $
+              {promoCodeApply === promoCode.toLowerCase()
+                ? (priceTotal - (priceTotal * 20) / 100).toLocaleString(
+                    undefined,
+                    { minimumFractionDigits: 2 }
+                  )
+                : priceTotal.toLocaleString(undefined, {
+                    minimumFractionDigits: 2,
+                  })}
+            </span>
+          </li>
+          <PromoCode />
+        </ul>
         <Button btnType="primary" buttonLabel="Proceed to checkout" />
-      </ul>
+      </div>
     </div>
   );
 }

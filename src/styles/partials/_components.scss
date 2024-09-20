@@ -117,6 +117,7 @@ nav {
   position: fixed;
   height: 100vh;
   height: 100dvh;
+  max-height: 100dvh;
   width: 100%;
   top: 0;
   left: 0px;
@@ -221,7 +222,7 @@ nav {
 }
 
 // order summary
-.order-summary-container {
+.order-summary {
   position: sticky;
   top: 136px;
   align-self: flex-start;
@@ -230,11 +231,15 @@ nav {
     margin-top: 0px;
   }
 
-  .order-summary-list {
-    width: 350px;
+  .order-summary-container {
+    // width: 350px;
     border: 1px solid var(--light-grey);
     border-radius: 4px;
     padding: 16px;
+
+    .order-summary-list {
+      width: 350px;
+    }
 
     li {
       display: flex;
