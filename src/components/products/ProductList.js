@@ -7,34 +7,16 @@ import { useEffect, useState } from "react";
 import Filter from "../filterMenu/Fiter";
 
 function ProductList() {
-  const { isLoading, products, setIsProductFiltered } = useProducts();
+  const { isLoading, products, setIsProductFiltered, isMobileView } =
+    useProducts();
   const params = useParams();
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [isMobileView, setMobileView] = useState(null);
-  // eslint-disable-next-line
-  const [windowSize, setWindowSize] = useState(
-    window.matchMedia("(max-width: 945px)")
-  );
 
   useEffect(() => {
     setFilteredProducts(
       products.filter((product) => product.category === params.productCategory)
     );
-
-    if (windowSize.matches) {
-      setMobileView(true);
-    } else {
-      setMobileView(false);
-    }
-  }, [products, params.productCategory, windowSize.matches]);
-
-  windowSize.addEventListener("change", (event) => {
-    if (event.matches) {
-      setMobileView(true);
-    } else {
-      setMobileView(false);
-    }
-  });
+  }, [products, params.productCategory]);
 
   const currentProducts = products.filter(
     (product) => product.category === params.productCategory

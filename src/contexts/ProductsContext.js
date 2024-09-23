@@ -164,6 +164,11 @@ function ProductsProvider({ children }) {
     isPromoCodeCopied,
   } = state;
   const [promoCodeMessage, setPromoCodeMessage] = useState("");
+  const [isMobileView, setMobileView] = useState(null);
+  // eslint-disable-next-line
+  const [windowSize, setWindowSize] = useState(
+    window.matchMedia("(max-width: 945px)")
+  );
 
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -249,6 +254,22 @@ function ProductsProvider({ children }) {
     ...new Set(products.map((product) => product.category)),
   ];
 
+  useEffect(() => {
+    if (windowSize.matches) {
+      setMobileView(true);
+    } else {
+      setMobileView(false);
+    }
+  }, [windowSize.matches]);
+
+  windowSize.addEventListener("change", (event) => {
+    if (event.matches) {
+      setMobileView(true);
+    } else {
+      setMobileView(false);
+    }
+  });
+
   return (
     <ProductsContext.Provider
       value={{
@@ -273,6 +294,7 @@ function ProductsProvider({ children }) {
         promoCode,
         isPromoCodeCopied,
         promoCodeMessage,
+        isMobileView,
       }}
     >
       {children}

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import FilterMenu from "./FilterMenu";
 import Button from "../Button";
+import { useProducts } from "../../contexts/ProductsContext";
 
-function Filter({ colors, filterItems, handleRemoveFilters, isMobileView }) {
+function Filter({ colors, filterItems, handleRemoveFilters }) {
   const [displayFilterMenu, setDisplayFilterMenu] = useState(false);
+  const { isMobileView } = useProducts();
 
   const openFilterMenu = () => {
     setDisplayFilterMenu(true);
@@ -21,7 +23,6 @@ function Filter({ colors, filterItems, handleRemoveFilters, isMobileView }) {
           />
           {displayFilterMenu && (
             <FilterMenu
-              isMobileView={isMobileView}
               filterItems={filterItems}
               colors={colors}
               setDisplayFilterMenu={setDisplayFilterMenu}
@@ -33,7 +34,6 @@ function Filter({ colors, filterItems, handleRemoveFilters, isMobileView }) {
       ) : (
         <>
           <FilterMenu
-            isMobileView={isMobileView}
             filterItems={filterItems}
             colors={colors}
             setDisplayFilterMenu={setDisplayFilterMenu}

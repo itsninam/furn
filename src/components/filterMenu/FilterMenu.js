@@ -1,3 +1,4 @@
+import { useProducts } from "../../contexts/ProductsContext";
 import Button from "../Button";
 import FilterMenuItems from "./FilterMenuItems";
 
@@ -7,8 +8,9 @@ function FilterMenu({
   handleRemoveFilters,
   setDisplayFilterMenu,
   displayFilterMenu,
-  isMobileView,
 }) {
+  const { isMobileView } = useProducts();
+
   const filterMenuItems = [
     {
       category: "colors",

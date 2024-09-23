@@ -77,4 +77,51 @@
       }
     }
   }
+
+  table {
+    tr td:nth-child(2),
+    tr:first-of-type {
+      display: none;
+    }
+
+    tr {
+      .remove-item,
+      td:nth-child(3) {
+        position: absolute;
+        left: 0px;
+        width: 88px;
+        margin-left: 114px;
+        text-align: left;
+      }
+    }
+
+    .item-container {
+      width: 270px;
+      gap: 8px;
+
+      img {
+        width: 80px;
+        height: auto;
+      }
+    }
+  }
+
+  .cart {
+    .order-summary {
+      h3 {
+        margin: 0px;
+      }
+
+      .order-summary-list {
+        width: 100%;
+        margin-left: 0px;
+      }
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0px;
+      }
+    }
+  }
 }
