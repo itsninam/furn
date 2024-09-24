@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { useProducts } from "../contexts/ProductsContext";
 import { FaRegTrashAlt } from "react-icons/fa";
 import SubHeader from "./SubHeader";
@@ -14,11 +14,14 @@ function Cart() {
   const quantityRefs = useRef([]);
   const removeItemRefs = useRef([]);
 
-  const setElementPosition = (element, index, top, extraAmount) => {
-    isMobileView
-      ? (element.current[index].style.top = `${top + extraAmount}px`)
-      : (element.current[index].style.top = "0px");
-  };
+  const setElementPosition = useCallback(
+    (element, index, top, extraAmount) => {
+      isMobileView
+        ? (element.current[index].style.top = `${top + extraAmount}px`)
+        : (element.current[index].style.top = "0px");
+    },
+    [isMobileView]
+  );
 
   useEffect(() => {
     if (itemInfoRefs.current.length === 0) return;
@@ -30,13 +33,12 @@ function Cart() {
         const absoluteTop = top + scrollTop;
 
         if (quantityRefs.current[index]) {
-          setElementPosition(removeItemRefs, index, absoluteTop, 24);
+          setElementPosition(removeItemRefs, index, absoluteTop, 48);
           setElementPosition(quantityRefs, index, absoluteTop, 4);
         }
       }
     });
-    // eslint-disable-next-line
-  }, [isMobileView]);
+  }, [isMobileView, setElementPosition]);
 
   return (
     <div className="cart-content">
@@ -84,7 +86,11 @@ function Cart() {
                     onClick={() => handleRemoveItem(item)}
                     className="remove-item"
                   >
-                    <FaRegTrashAlt className="remove-cart-item-icon" />
+                    {isMobileView ? (
+                      "Delete"
+                    ) : (
+                      <FaRegTrashAlt className="remove-cart-item-icon" />
+                    )}
                   </td>
                 </tr>
               );

@@ -165,13 +165,15 @@ function ProductsProvider({ children }) {
   } = state;
   const [promoCodeMessage, setPromoCodeMessage] = useState("");
   const [isMobileView, setMobileView] = useState(null);
-  // eslint-disable-next-line
-  const [windowSize, setWindowSize] = useState(
-    window.matchMedia("(max-width: 945px)")
-  );
-
   const navigate = useNavigate();
   const { pathname } = useLocation();
+
+  // eslint-disable-next-line
+  const [windowSize, setWindowSize] = useState(
+    pathname === "/cart"
+      ? window.matchMedia("(max-width: 745px)")
+      : window.matchMedia("(max-width: 945px)")
+  );
 
   useEffect(() => {
     dispatch({ type: "fetch_data", payload: furnitureData });
